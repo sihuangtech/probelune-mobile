@@ -38,3 +38,14 @@ flutter build ios --no-codesign
 [隐私](docs/PRIVACY.md) · [更新记录](CHANGELOG.md) · [贡献](CONTRIBUTING.md) · [安全](SECURITY.md) · [验收](https://github.com/sihuangtech/probelune/blob/main/docs/acceptance.md)
 
 采用 [GPL-3.0-or-later](LICENSE) 开源。
+
+
+## 星标历史
+
+[![星标历史](https://api.star-history.com/svg?repos=sihuangtech/probelune-mobile&type=Date)](https://star-history.com/#sihuangtech/probelune-mobile&Date)
+
+## 联系开发者
+
+- 开发者: [Snake Konginchrist](https://github.com/Snake-Konginchrist)
+- 邮箱: [developer@skstudio.cn](mailto:developer@skstudio.cn)
+- 问题反馈: [GitHub Issues](https://github.com/sihuangtech/probelune-mobile/issues)

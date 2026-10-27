@@ -41,3 +41,14 @@ The build commands produce an Android debug APK and an unsigned iOS app. Neither
 [Privacy](docs/PRIVACY.md) · [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Acceptance](https://github.com/sihuangtech/probelune/blob/main/docs/acceptance.md)
 
 [GPL-3.0-or-later](LICENSE). Actual native push, signed installations and store publication require deployer credentials and real-device validation.
+
+
+## Star History
+
+[![Star history](https://api.star-history.com/svg?repos=sihuangtech/probelune-mobile&type=Date)](https://star-history.com/#sihuangtech/probelune-mobile&Date)
+
+## Contact
+
+- Developer: [Snake Konginchrist](https://github.com/Snake-Konginchrist)
+- Email: [developer@skstudio.cn](mailto:developer@skstudio.cn)
+- Feedback: [GitHub Issues](https://github.com/sihuangtech/probelune-mobile/issues)
