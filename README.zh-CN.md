@@ -35,10 +35,9 @@ flutter build ios --no-codesign
 
 `lib/screens` 为页面，`widgets` 为复用界面，`services` 负责网络、安全存储和推送。不内置后端、不依赖同级仓库源码。依赖使用 `flutter pub add/remove/upgrade` 官方命令管理并提交锁文件。
 
-[隐私](docs/PRIVACY.md) · [更新记录](CHANGELOG.md) · [贡献](CONTRIBUTING.md) · [安全](SECURITY.md) · [验收](https://github.com/sihuangtech/probelune/blob/main/docs/acceptance.md)
+[隐私](docs/PRIVACY.md) · [发布记录](https://github.com/sihuangtech/probelune-mobile/releases) · [贡献](CONTRIBUTING.md) · [安全](SECURITY.md) · [验收](https://github.com/sihuangtech/probelune/blob/main/docs/acceptance.md)
 
 采用 [GPL-3.0-or-later](LICENSE) 开源。
-
 
 ## 星标历史
 

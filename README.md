@@ -38,10 +38,9 @@ The build commands produce an Android debug APK and an unsigned iOS app. Neither
 
 `lib/screens` contains pages; `widgets` contains reusable presentation; `services` owns HTTP, secure storage and push. `models.dart` and `l10n.dart` are shared helpers. No embedded backend or adjacent repository is needed. Use official `flutter pub add/remove/upgrade` commands for dependencies and commit `pubspec.lock`.
 
-[Privacy](docs/PRIVACY.md) · [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Acceptance](https://github.com/sihuangtech/probelune/blob/main/docs/acceptance.md)
+[Privacy](docs/PRIVACY.md) · [Releases](https://github.com/sihuangtech/probelune-mobile/releases) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Acceptance](https://github.com/sihuangtech/probelune/blob/main/docs/acceptance.md)
 
 [GPL-3.0-or-later](LICENSE). Actual native push, signed installations and store publication require deployer credentials and real-device validation.
-
 
 ## Star History
 
