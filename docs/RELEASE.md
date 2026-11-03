@@ -2,13 +2,13 @@
 
 ## Android
 
-Application ID: `cn.sihuangtech.probelune_mobile`. Create a private upload keystore using the official Android signing guide. Copy `android/key.properties.example` to ignored `android/key.properties`, set its absolute keystore path, alias and passwords, then run `flutter build appbundle --release`.
+Application ID: `cn.skstudio.probe.android`. Create a private upload keystore using the official Android signing guide. Copy `android/key.properties.example` to ignored `android/key.properties`, set its absolute keystore path, alias and passwords, then run `flutter build appbundle --release`.
 
 No signing secrets are committed. Without `key.properties`, release output is not signed for publication. CI debug APKs are validation artifacts. Keep keystore recovery copies outside Git.
 
 ## iOS
 
-Bundle ID: `cn.sihuangtech.probeluneMobile`; minimum iOS 15. Open `ios/Runner.xcworkspace`, select your signing team and correct profiles, then use `flutter build ipa`. `flutter build ios --no-codesign` only validates compilation.
+Bundle ID: `cn.skstudio.probe.ios`; minimum iOS 15. Open `ios/Runner.xcworkspace`, select your signing team and correct profiles, then use `flutter build ipa`. `flutter build ios --no-codesign` only validates compilation.
 
 Enable Push Notifications capability for a push-enabled distribution and configure APNs credentials in Firebase. The Runner entitlements use `APS_ENVIRONMENT`: development for Debug, production for Release/Profile. Verify this matches your actual provisioning profile. Keychain access is scoped to the app identifier.
 

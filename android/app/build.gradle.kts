@@ -12,7 +12,7 @@ val signingFile = rootProject.file("key.properties")
 if (signingFile.exists()) FileInputStream(signingFile).use { signingProperties.load(it) }
 
 android {
-    namespace = "cn.sihuangtech.probelune_mobile"
+    namespace = "cn.skstudio.probe.android"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -22,7 +22,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "cn.sihuangtech.probelune_mobile"
+        applicationId = "cn.skstudio.probe.android"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

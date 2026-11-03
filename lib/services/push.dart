@@ -14,7 +14,7 @@ FirebaseOptions get firebaseOptions => const FirebaseOptions(
   appId: String.fromEnvironment('FIREBASE_APP_ID'),
   messagingSenderId: String.fromEnvironment('FIREBASE_SENDER_ID'),
   projectId: String.fromEnvironment('FIREBASE_PROJECT_ID'),
-  iosBundleId: 'cn.sihuangtech.probeluneMobile',
+  iosBundleId: 'cn.skstudio.probe.ios',
 );
 
 @pragma('vm:entry-point')

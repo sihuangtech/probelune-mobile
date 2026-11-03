@@ -1,4 +1,4 @@
-package cn.sihuangtech.probelune_mobile
+package cn.skstudio.probe.android
 
 import io.flutter.embedding.android.FlutterActivity
 
