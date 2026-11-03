@@ -33,88 +33,96 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final i = instances.current!;
+    Widget group(String title, List<(String, String, IconData)> entries) =>
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8, 20, 8, 6),
+              child: Text(
+                message(context, title),
+                style: Theme.of(context).textTheme.titleSmall
+                    ?.copyWith(color: Theme.of(context).colorScheme.primary),
+              ),
+            ),
+            Card(
+              margin: EdgeInsets.zero,
+              child: Column(
+                children: [
+                  for (final entry in entries)
+                    ListTile(
+                      leading: Icon(entry.$3),
+                      title: Text(message(context, entry.$2)),
+                      trailing: const Icon(Icons.chevron_right),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => AdminResources(
+                            instance: i,
+                            resource: entry.$1,
+                            title: message(context, entry.$2),
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ],
+        );
     return ListView(
       padding: const EdgeInsets.all(20),
       children: [
         Text(
-          message(context, 'mInstanceDevice9b94'),
+          message(context, 'mSettings4d92'),
           style: Theme.of(context).textTheme.headlineMedium,
         ),
-        Align(
-          alignment: AlignmentDirectional.centerEnd,
-          child: IconButton(
-            tooltip: 'GitHub',
-            icon: const FaIcon(FontAwesomeIcons.github),
-            onPressed: () async {
-              final uri = Uri.https(
-                'github.com',
-                '/sihuangtech/probelune-mobile',
-              );
-              try {
-                if (await launchUrl(uri, mode: LaunchMode.externalApplication)) {
-                  return;
-                }
-              } catch (_) {}
-              if (context.mounted) {
-                showDialog<void>(
-                  context: context,
-                  builder: (c) => AlertDialog(
-                    title: const Text('GitHub'),
-                    content: SelectableText(uri.toString()),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(c),
-                        child: Text(message(c, 'mDone4bc2')),
-                      ),
-                    ],
-                  ),
-                );
-              }
-            },
-          ),
-        ),
-        for (final entry in [
-          ('/settings', 'mInstanceSettingsccf9'),
-          ('/status', 'mPublicStatusPagecf35'),
-          ('/nodes', 'mNodeManagement29e4'),
-          ('/diagnostics', 'mDiagnostics9e30'),
-          ('/maintenance', 'mMaintenanceWindowseba5'),
-          if (i.canEdit) ('/deliveries', 'mNotificationDeliveries6afd'),
-          if (i.role == 'admin') ('/channels', 'mNotificationChannels7bf8'),
-          if (i.role == 'admin') ('/users', 'mMembers1266'),
-          if (i.role == 'admin') ('/audit', 'mAuditLogc987'),
-          ('/auth/sessions', 'mSessionsAndPairing9681'),
-          ('/devices', 'mDevices1329'),
-        ])
-          ListTile(
-            title: Text(message(context, entry.$2)),
-            trailing: const Icon(Icons.chevron_right),
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => AdminResources(
-                  instance: i,
-                  resource: entry.$1,
-                  title: message(context, entry.$2),
-                ),
-              ),
-            ),
-          ),
-
+        const SizedBox(height: 12),
         Card(
           child: Column(
             children: [
               ListTile(
-                title: Text(i.url),
-                subtitle: Text('${i.username} - ${i.role}'),
+                leading: const Icon(Icons.dns_outlined),
+                title: Text(i.username),
+                subtitle: Text('${i.url}\n${i.role}'),
               ),
               ListTile(
+                leading: const Icon(Icons.schedule),
                 title: Text(message(context, 'mSessionExpires8b18')),
                 subtitle: Text(timeText(i.expires)),
               ),
             ],
           ),
         ),
+        group('mInstanceSettingsccf9', [
+          ('/settings', 'mInstanceSettingsccf9', Icons.tune),
+          ('/status', 'mPublicStatusPagecf35', Icons.public),
+          ('/nodes', 'mNodeManagement29e4', Icons.dns_outlined),
+          ('/diagnostics', 'mDiagnostics9e30', Icons.network_check),
+          ('/maintenance', 'mMaintenanceWindowseba5', Icons.build_outlined),
+        ]),
+        if (i.canEdit)
+          group('mIncidentNotificationsf0ab', [
+            (
+              '/deliveries',
+              'mNotificationDeliveries6afd',
+              Icons.outbox_outlined,
+            ),
+            if (i.role == 'admin')
+              (
+                '/channels',
+                'mNotificationChannels7bf8',
+                Icons.notifications_outlined,
+              ),
+          ]),
+        group('mInstanceDevice9b94', [
+          if (i.role == 'admin')
+            ('/users', 'mMembers1266', Icons.people_outline),
+          if (i.role == 'admin') ('/audit', 'mAuditLogc987', Icons.history),
+          ('/auth/sessions', 'mSessionsAndPairing9681', Icons.key_outlined),
+          ('/devices', 'mDevices1329', Icons.devices),
+        ]),
+        const SizedBox(height: 16),
         Card(
           child: Column(
             children: [
@@ -172,7 +180,49 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
-        Text(message(context, 'mProbelune011GPL3283e')),
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                message(context, 'mProbelune011GPL3283e'),
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+            ),
+            IconButton(
+              tooltip: 'GitHub',
+              icon: const FaIcon(FontAwesomeIcons.github),
+              onPressed: () async {
+                final uri = Uri.https(
+                  'github.com',
+                  '/sihuangtech/probelune-mobile',
+                );
+                try {
+                  if (await launchUrl(
+                    uri,
+                    mode: LaunchMode.externalApplication,
+                  )) {
+                    return;
+                  }
+                } catch (_) {}
+                if (context.mounted) {
+                  showDialog<void>(
+                    context: context,
+                    builder: (c) => AlertDialog(
+                      title: const Text('GitHub'),
+                      content: SelectableText(uri.toString()),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(c),
+                          child: Text(message(c, 'mDone4bc2')),
+                        ),
+                      ],
+                    ),
+                  );
+                }
+              },
+            ),
+          ],
+        ),
       ],
     );
   }
