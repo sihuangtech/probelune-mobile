@@ -6,7 +6,7 @@ import '../widgets/availability_history.dart';
 
 import 'dart:convert';
 
-import '../l10n.dart';
+import '../localization.dart';
 import '../models.dart';
 import '../services/api.dart';
 import 'resource_editor.dart';
@@ -78,18 +78,16 @@ class _AdminResourcesState extends State<AdminResources> {
       final yes = await showDialog<bool>(
         context: context,
         builder: (c) => AlertDialog(
-          title: Text(tr(c, 'Confirm action', '确认操作')),
-          content: Text(
-            tr(c, 'This changes the selected resource.', '此操作将修改选中的资源。'),
-          ),
+          title: Text(message(c, 'mConfirmActionab35')),
+          content: Text(message(c, 'mThisChangesTheSelectedResourced5e4')),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(c, false),
-              child: Text(tr(c, 'Cancel', '取消')),
+              child: Text(message(c, 'mCancel5f4d')),
             ),
             FilledButton(
               onPressed: () => Navigator.pop(c, true),
-              child: Text(tr(c, 'Confirm', '确认')),
+              child: Text(message(c, 'mConfirm5ef9')),
             ),
           ],
         ),
@@ -105,7 +103,7 @@ class _AdminResourcesState extends State<AdminResources> {
         await showDialog<void>(
           context: context,
           builder: (c) => AlertDialog(
-            title: Text(tr(c, 'Credential', '凭据')),
+            title: Text(message(c, 'mCredentiale88d')),
             content: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -129,7 +127,7 @@ class _AdminResourcesState extends State<AdminResources> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(c),
-                child: Text(tr(c, 'Done', '完成')),
+                child: Text(message(c, 'mDone4bc2')),
               ),
             ],
           ),
@@ -158,16 +156,15 @@ class _AdminResourcesState extends State<AdminResources> {
           ...?row,
         };
         fields = const [
-          EditField('name', 'Name', '名称'),
-          EditField('region', 'Region', '地区'),
-          EditField('network', 'Network', '网络'),
+          EditField('name', 'mName0f2c'),
+          EditField('region', 'mRegion940c'),
+          EditField('network', 'mNetworkb4a4'),
           EditField(
             'policy.allow_cidrs',
-            'Allowed destination CIDRs (one per line)',
-            '允许探测的 CIDR（每行一个）',
+            'mAllowedDestinationCIDRsOnePerLinecde0',
             kind: 'list',
           ),
-          EditField('enabled', 'Enabled', '启用', kind: 'bool'),
+          EditField('enabled', 'mEnabled2faa', kind: 'bool'),
         ];
       case '/channels':
         value = {
@@ -187,39 +184,27 @@ class _AdminResourcesState extends State<AdminResources> {
           ...?row,
         };
         fields = const [
-          EditField('name', 'Name', '名称'),
-          EditField('type', 'Type', '类型', options: ['webhook', 'smtp', 'push']),
-          EditField('url', 'Webhook URL', 'Webhook 地址'),
-          EditField('smtp_host', 'SMTP host', 'SMTP 主机'),
-          EditField('smtp_port', 'SMTP port', 'SMTP 端口', kind: 'int'),
-          EditField(
-            'tls_mode',
-            'TLS mode',
-            'TLS 模式',
-            options: ['starttls', 'tls'],
-          ),
-          EditField('username', 'Username', '用户名'),
-          EditField(
-            'password',
-            'Password (blank to preserve)',
-            '密码（留空保留原值）',
-            kind: 'secret',
-          ),
-          EditField('from', 'From', '发件人'),
-          EditField('to', 'To', '收件人'),
+          EditField('name', 'mName0f2c'),
+          EditField('type', 'mType5196', options: ['webhook', 'smtp', 'push']),
+          EditField('url', 'mWebhookURLb6b0'),
+          EditField('smtp_host', 'mSMTPHostaeea'),
+          EditField('smtp_port', 'mSMTPPort71b0', kind: 'int'),
+          EditField('tls_mode', 'mTLSMode4cfa', options: ['starttls', 'tls']),
+          EditField('username', 'mUsernamede33'),
+          EditField('password', 'mPasswordBlankToPreservecc40', kind: 'secret'),
+          EditField('from', 'mFrom107e'),
+          EditField('to', 'mTo9c63'),
           EditField(
             'policy.allow_cidrs',
-            'Allowed destination CIDRs',
-            '允许访问的 CIDR',
+            'mAllowedDestinationCIDRs02da',
             kind: 'list',
           ),
           EditField(
             'reminder_minutes',
-            'Reminder interval (minutes, 0 disables)',
-            '提醒间隔（分钟，0 禁用）',
+            'mReminderIntervalMinutes0Disables167e',
             kind: 'int',
           ),
-          EditField('enabled', 'Enabled', '启用', kind: 'bool'),
+          EditField('enabled', 'mEnabled2faa', kind: 'bool'),
         ];
       case '/maintenance':
         value = {
@@ -229,15 +214,10 @@ class _AdminResourcesState extends State<AdminResources> {
           'end': now + 3600,
         };
         fields = const [
-          EditField('name', 'Name', '名称'),
-          EditField(
-            'monitor_ids',
-            'Monitors (empty means all)',
-            '监测（不选则为全部）',
-            kind: 'list',
-          ),
-          EditField('start', 'Start', '开始时间', kind: 'date'),
-          EditField('end', 'End', '结束时间', kind: 'date'),
+          EditField('name', 'mName0f2c'),
+          EditField('monitor_ids', 'mMonitorsEmptyMeansAllb675', kind: 'list'),
+          EditField('start', 'mStart12e8', kind: 'date'),
+          EditField('end', 'mEndb8a1', kind: 'date'),
         ];
       case '/users':
         value = {
@@ -248,46 +228,25 @@ class _AdminResourcesState extends State<AdminResources> {
           'password': '',
         };
         fields = const [
-          EditField('username', 'Username', '用户名'),
-          EditField(
-            'password',
-            'Password (blank to preserve)',
-            '密码（留空保留原值）',
-            kind: 'secret',
-          ),
+          EditField('username', 'mUsernamede33'),
+          EditField('password', 'mPasswordBlankToPreservecc40', kind: 'secret'),
           EditField(
             'role',
-            'Role',
-            '角色',
+            'mRole3657',
             options: ['viewer', 'operator', 'admin'],
           ),
-          EditField('disabled', 'Disabled', '禁用', kind: 'bool'),
+          EditField('disabled', 'mDisabledf8cb', kind: 'bool'),
         ];
       case '/settings':
         value = rows.first;
         method = 'PUT';
         fields = const [
-          EditField('name', 'Instance name', '面板名称'),
-          EditField('public_url', 'Public URL', '面板地址'),
-          EditField('timezone', 'Timezone', '时区'),
-          EditField(
-            'raw_days',
-            'Raw data retention (days)',
-            '原始数据保留天数',
-            kind: 'int',
-          ),
-          EditField(
-            'event_days',
-            'Event retention (days)',
-            '事件保留天数',
-            kind: 'int',
-          ),
-          EditField(
-            'public_status',
-            'Public status page',
-            '公开状态页',
-            kind: 'bool',
-          ),
+          EditField('name', 'mInstanceName6d10'),
+          EditField('public_url', 'mPublicURLfcdb'),
+          EditField('timezone', 'mTimezone1b5e'),
+          EditField('raw_days', 'mRawDataRetentionDays373a', kind: 'int'),
+          EditField('event_days', 'mEventRetentionDays3d64', kind: 'int'),
+          EditField('public_status', 'mPublicStatusPagecf35', kind: 'bool'),
         ];
       case '/diagnostics':
         value = {'check': defaultCheck(), 'node_ids': <String>[]};
@@ -298,7 +257,7 @@ class _AdminResourcesState extends State<AdminResources> {
         fields = [
           ...checkFields,
           if (panel == null)
-            const EditField('node_ids', 'Probe sources', '探测来源', kind: 'list'),
+            const EditField('node_ids', 'mProbeSources82d6', kind: 'list'),
         ];
     }
     if (row != null &&
@@ -345,24 +304,24 @@ class _AdminResourcesState extends State<AdminResources> {
       case '/nodes':
         lines.add('${row['region'] ?? ''}  ${row['network'] ?? ''}');
         lines.add(
-          '${tr(context, 'Last heartbeat', '最近心跳')} ${timeText(row['last_seen'])}',
+          '${message(context, 'mLastHeartbeatb32b')} ${timeText(row['last_seen'])}',
         );
         lines.add(
-          '${tr(context, 'Allowed destinations', '允许探测的地址')} ${object(row['policy'])['allow_cidrs'] ?? []}',
+          '${message(context, 'mAllowedDestinations17c6')} ${object(row['policy'])['allow_cidrs'] ?? []}',
         );
       case '/channels':
         lines.add(
           '${row['type']}  ${row['type'] == 'smtp' ? row['smtp_host'] : row['url'] ?? ''}',
         );
         lines.add(
-          '${tr(context, 'Reminder minutes', '提醒间隔（分钟）')} ${row['reminder_minutes'] ?? 0}',
+          '${message(context, 'mReminderMinutes13c2')} ${row['reminder_minutes'] ?? 0}',
         );
       case '/maintenance':
         lines.add('${timeText(row['start'])} — ${timeText(row['end'])}');
         final ids = row['monitor_ids'] as List? ?? [];
         lines.add(
           ids.isEmpty
-              ? tr(context, 'All monitors', '全部监测')
+              ? message(context, 'mAllMonitors4303')
               : monitors
                     .where((m) => ids.contains(m['id']))
                     .map((m) => m['name'])
@@ -372,12 +331,12 @@ class _AdminResourcesState extends State<AdminResources> {
         lines.add('${row['role']}');
       case '/auth/sessions':
         lines.add(
-          '${tr(context, 'Expires', '到期时间')} ${timeText(row['expires'])}',
+          '${message(context, 'mExpires0c9d')} ${timeText(row['expires'])}',
         );
       case '/devices':
         lines.add(timeText(row['created_at']));
       case '/deliveries':
-        lines.add('${tr(context, 'Attempts', '尝试次数')} ${row['attempts']}');
+        lines.add('${message(context, 'mAttempts3fea')} ${row['attempts']}');
         lines.add(timeText(row['created_at']));
         if ('${row['error'] ?? ''}'.isNotEmpty) lines.add('${row['error']}');
       case '/audit':
@@ -385,12 +344,12 @@ class _AdminResourcesState extends State<AdminResources> {
         lines.add(timeText(row['at']));
       case '/settings':
         lines.add('${row['public_url']}');
-        lines.add('${tr(context, 'Timezone', '时区')} ${row['timezone']}');
+        lines.add('${message(context, 'mTimezone1b5e')} ${row['timezone']}');
         lines.add(
-          '${tr(context, 'Raw data / event retention days', '原始数据 / 事件保留天数')} ${row['raw_days']} / ${row['event_days']}',
+          '${message(context, 'mRawDataEventRetentionDays683f')} ${row['raw_days']} / ${row['event_days']}',
         );
         lines.add(
-          '${tr(context, 'Public status', '公开状态页')} ${row['public_status'] == true ? tr(context, 'Enabled', '启用') : tr(context, 'Disabled', '禁用')}',
+          '${message(context, 'mPublicStatus52b7')} ${row['public_status'] == true ? message(context, 'mEnabled2faa') : message(context, 'mDisabledf8cb')}',
         );
     }
     return Column(
@@ -418,7 +377,7 @@ class _AdminResourcesState extends State<AdminResources> {
         Builder(
           builder: (c) => IconButton(
             icon: const Icon(Icons.ios_share),
-            tooltip: tr(context, 'Export data', '导出数据'),
+            tooltip: message(context, 'mExportData7c6b'),
             onPressed: () => shareJson(c, 'probelune', rows),
           ),
         ),
@@ -431,7 +390,7 @@ class _AdminResourcesState extends State<AdminResources> {
     floatingActionButton: canCreate
         ? FloatingActionButton(
             onPressed: () => configure(),
-            tooltip: tr(context, 'Add', '添加'),
+            tooltip: message(context, 'mAdd0453'),
             child: const Icon(Icons.add),
           )
         : null,
@@ -450,10 +409,10 @@ class _AdminResourcesState extends State<AdminResources> {
             if (widget.resource == '/auth/sessions')
               TextButton(
                 onPressed: () => action('/auth/pair', 'POST', body: {}),
-                child: Text(tr(context, 'Create pairing code', '生成配对码')),
+                child: Text(message(context, 'mCreatePairingCoded63a')),
               ),
             if (rows.isEmpty && !loading)
-              Text(tr(context, 'No entries', '暂无记录')),
+              Text(message(context, 'mNoEntries0577')),
             for (final raw in rows)
               Builder(
                 builder: (context) {
@@ -494,7 +453,7 @@ class _AdminResourcesState extends State<AdminResources> {
                                   ].contains(widget.resource))
                                 TextButton(
                                   onPressed: () => configure(row),
-                                  child: Text(tr(context, 'Edit', '编辑')),
+                                  child: Text(message(context, 'mEditcf6b')),
                                 ),
                               if (widget.resource == '/channels' && admin)
                                 TextButton(
@@ -503,7 +462,9 @@ class _AdminResourcesState extends State<AdminResources> {
                                     'POST',
                                     body: {},
                                   ),
-                                  child: Text(tr(context, 'Send test', '发送测试')),
+                                  child: Text(
+                                    message(context, 'mSendTestc2ec'),
+                                  ),
                                 ),
                               if (widget.resource == '/nodes' && admin) ...[
                                 TextButton(
@@ -514,7 +475,7 @@ class _AdminResourcesState extends State<AdminResources> {
                                     confirm: true,
                                   ),
                                   child: Text(
-                                    tr(context, 'Rotate credentials', '轮换凭据'),
+                                    message(context, 'mRotateCredentialsd16e'),
                                   ),
                                 ),
                                 TextButton(
@@ -525,7 +486,7 @@ class _AdminResourcesState extends State<AdminResources> {
                                     confirm: true,
                                   ),
                                   child: Text(
-                                    tr(context, 'Revoke credentials', '撤销凭据'),
+                                    message(context, 'mRevokeCredentials8634'),
                                   ),
                                 ),
                               ],
@@ -540,7 +501,7 @@ class _AdminResourcesState extends State<AdminResources> {
                                     'DELETE',
                                     confirm: true,
                                   ),
-                                  child: Text(tr(context, 'Remove', '移除')),
+                                  child: Text(message(context, 'mRemoveac5c')),
                                 ),
                               if (diagnostic)
                                 TextButton(
@@ -553,7 +514,7 @@ class _AdminResourcesState extends State<AdminResources> {
                                       ),
                                     ),
                                   ),
-                                  child: Text(tr(context, 'Results', '结果')),
+                                  child: Text(message(context, 'mResults9278')),
                                 ),
                             ],
                           ),

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../models.dart';
-import '../l10n.dart';
+import '../localization.dart';
 import '../services/api.dart';
 import 'diagnostics.dart';
 
@@ -85,7 +85,7 @@ class _IncidentState extends State<IncidentScreen> {
     final text = await showDialog<String>(
       context: context,
       builder: (c) => AlertDialog(
-        title: Text(tr(c, 'Add note', '添加备注')),
+        title: Text(message(c, 'mAddNote3c4b')),
         content: TextField(
           controller: controller,
           maxLength: 1000,
@@ -94,11 +94,11 @@ class _IncidentState extends State<IncidentScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(c),
-            child: Text(tr(c, 'Cancel', '取消')),
+            child: Text(message(c, 'mCancel5f4d')),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(c, controller.text),
-            child: Text(tr(c, 'Save', '保存')),
+            child: Text(message(c, 'mSave93f6')),
           ),
         ],
       ),
@@ -136,7 +136,7 @@ class _IncidentState extends State<IncidentScreen> {
   Widget build(BuildContext context) {
     final allowed = widget.instance.canEdit && fresh && error.isEmpty && !busy;
     return Scaffold(
-      appBar: AppBar(title: Text(tr(context, 'Incident', '故障事件'))),
+      appBar: AppBar(title: Text(message(context, 'mIncident9b04'))),
       body: RefreshIndicator(
         onRefresh: refresh,
         child: ListView(
@@ -148,7 +148,7 @@ class _IncidentState extends State<IncidentScreen> {
             ),
             const SizedBox(height: 8),
             Text(
-              '${tr(context, 'Opened', '发生时间')}: ${timeText(incident['opened_at'])}\n${tr(context, 'Recovered', '恢复时间')}: ${timeText(incident['recovered_at'])}',
+              '${message(context, 'mOpenedd49f')}: ${timeText(incident['opened_at'])}\n${message(context, 'mRecovered1be5')}: ${timeText(incident['recovered_at'])}',
             ),
             if (error.isNotEmpty)
               Text(
@@ -162,20 +162,20 @@ class _IncidentState extends State<IncidentScreen> {
               children: [
                 FilledButton.tonal(
                   onPressed: allowed ? () => action('ack') : null,
-                  child: Text(tr(context, 'Acknowledge', '确认知悉')),
+                  child: Text(message(context, 'mAcknowledgec88f')),
                 ),
                 FilledButton.tonal(
                   onPressed: allowed ? () => action('silence') : null,
-                  child: Text(tr(context, 'Silence 1h', '静默 1 小时')),
+                  child: Text(message(context, 'mSilence1h2826')),
                 ),
                 OutlinedButton(
                   onPressed: allowed ? note : null,
-                  child: Text(tr(context, 'Add note', '备注')),
+                  child: Text(message(context, 'mAddNote3c4b')),
                 ),
                 if ((incident['monitor_id'] as String? ?? '').isNotEmpty)
                   OutlinedButton(
                     onPressed: allowed ? recheck : null,
-                    child: Text(tr(context, 'Recheck', '立即复查')),
+                    child: Text(message(context, 'mRecheck27d1')),
                   ),
               ],
             ),
@@ -184,7 +184,7 @@ class _IncidentState extends State<IncidentScreen> {
               (e) => Card(
                 child: ListTile(
                   leading: const Icon(Icons.timeline),
-                  title: Text('${e['kind']} · ${e['message'] ?? ''}'),
+                  title: Text('${e['kind']} - ${e['message'] ?? ''}'),
                   subtitle: Text(timeText(e['at'])),
                 ),
               ),

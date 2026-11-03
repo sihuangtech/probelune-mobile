@@ -3,78 +3,45 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import '../models.dart';
-import '../l10n.dart';
+import '../localization.dart';
 import '../services/api.dart';
 import 'resource_editor.dart';
 
 const checkFields = [
   EditField(
     'check.type',
-    'Type',
-    '探测类型',
+    'mType5196',
     options: ['tcp', 'udp', 'ping', 'http', 'dns', 'mtr', 'traceroute'],
   ),
-  EditField('check.target', 'Target', '目标地址'),
-  EditField('check.port', 'Port', '端口', kind: 'int'),
-  EditField('check.timeout', 'Timeout (seconds)', '超时（秒）', kind: 'int'),
-  EditField(
-    'check.family',
-    'IP family',
-    'IP 协议',
-    options: ['auto', 'ipv4', 'ipv6'],
-  ),
-  EditField('check.retries', 'Retries', '重试次数', kind: 'int'),
-  EditField('check.method', 'HTTP method', 'HTTP 方法', options: ['GET', 'HEAD']),
-  EditField(
-    'check.expected_status',
-    'Expected HTTP status',
-    '期望 HTTP 状态码',
-    kind: 'int',
-  ),
-  EditField('check.contains', 'Response contains', '响应包含'),
+  EditField('check.target', 'mTargetb918'),
+  EditField('check.port', 'mPortcda2', kind: 'int'),
+  EditField('check.timeout', 'mTimeoutSeconds3df8', kind: 'int'),
+  EditField('check.family', 'mIPFamily75d7', options: ['auto', 'ipv4', 'ipv6']),
+  EditField('check.retries', 'mRetries8fcf', kind: 'int'),
+  EditField('check.method', 'mHTTPMethodaa0d', options: ['GET', 'HEAD']),
+  EditField('check.expected_status', 'mExpectedHTTPStatus7f94', kind: 'int'),
+  EditField('check.contains', 'mResponseContains0db8'),
   EditField(
     'check.certificate_min_days',
-    'Minimum certificate days',
-    '证书最少剩余天数',
+    'mMinimumCertificateDayse78c',
     kind: 'int',
   ),
-  EditField(
-    'check.follow_redirects',
-    'Follow redirects',
-    '跟随重定向',
-    kind: 'bool',
-  ),
-  EditField(
-    'check.insecure_tls',
-    'Skip TLS verification',
-    '跳过证书验证',
-    kind: 'bool',
-  ),
-  EditField(
-    'check.headers',
-    'HTTP headers (JSON)',
-    'HTTP 请求头（JSON）',
-    kind: 'json',
-  ),
-  EditField(
-    'check.udp_encoding',
-    'UDP encoding',
-    'UDP 编码',
-    options: ['text', 'hex'],
-  ),
-  EditField('check.udp_payload', 'UDP payload', 'UDP 请求内容'),
-  EditField('check.udp_expected', 'Expected UDP response', 'UDP 期望响应'),
+  EditField('check.follow_redirects', 'mFollowRedirectsf007', kind: 'bool'),
+  EditField('check.insecure_tls', 'mSkipTLSVerification1e1d', kind: 'bool'),
+  EditField('check.headers', 'mHTTPHeadersJSONc5cd', kind: 'json'),
+  EditField('check.udp_encoding', 'mUDPEncodinga956', options: ['text', 'hex']),
+  EditField('check.udp_payload', 'mUDPPayload5a91'),
+  EditField('check.udp_expected', 'mExpectedUDPResponse7625'),
   EditField(
     'check.dns_record',
-    'DNS record',
-    'DNS 记录',
+    'mDNSRecord6c34',
     options: ['A', 'AAAA', 'CNAME', 'MX', 'TXT', 'NS', 'SOA'],
   ),
-  EditField('check.resolver', 'DNS resolver', 'DNS 解析器'),
-  EditField('check.expected_dns', 'Expected DNS answer', 'DNS 期望结果'),
-  EditField('check.count', 'Packet count', '发包数', kind: 'int'),
-  EditField('check.size', 'Packet size', '包大小', kind: 'int'),
-  EditField('check.max_loss', 'Maximum loss (%)', '允许丢包率（%）', kind: 'int'),
+  EditField('check.resolver', 'mDNSResolverf2a1'),
+  EditField('check.expected_dns', 'mExpectedDNSAnswerec4a'),
+  EditField('check.count', 'mPacketCount8ee8', kind: 'int'),
+  EditField('check.size', 'mPacketSize4fa1', kind: 'int'),
+  EditField('check.max_loss', 'mMaximumLossbd48', kind: 'int'),
 ];
 Json defaultCheck() => {
   'type': 'http',
@@ -180,56 +147,47 @@ class MonitorEditorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ResourceEditor(
     instance: instance,
-    title: tr(context, 'Monitor configuration', '监测配置'),
+    title: message(context, 'mMonitorConfigurationfc0e'),
     value: value,
     choices: choices,
     hint: panelName == null
         ? null
-        : tr(context, 'Probe source: $panelName', '探测来源：$panelName'),
+        : '${message(context, 'mProbeSource339f')} $panelName',
     path: '/monitors${value['id'] == null ? '' : '/${value['id']}'}',
     method: value['id'] == null ? 'POST' : 'PUT',
     fields: [
-      const EditField('name', 'Name', '名称'),
-      const EditField('group', 'Group', '分组'),
+      const EditField('name', 'mName0f2c'),
+      const EditField('group', 'mGroupf7c7'),
       const EditField(
         'check.type',
-        'Type',
-        '探测类型',
+        'mType5196',
         options: ['tcp', 'udp', 'ping', 'http', 'dns'],
       ),
       ...checkFields.where((f) => f.key != 'check.type'),
-      const EditField('interval', 'Interval (seconds)', '探测间隔（秒）', kind: 'int'),
-      const EditField(
-        'fail_threshold',
-        'Failure threshold',
-        '故障确认次数',
-        kind: 'int',
-      ),
+      const EditField('interval', 'mIntervalSeconds640f', kind: 'int'),
+      const EditField('fail_threshold', 'mFailureThreshold193c', kind: 'int'),
       const EditField(
         'recover_threshold',
-        'Recovery threshold',
-        '恢复确认次数',
+        'mRecoveryThresholde504',
         kind: 'int',
       ),
       if (panelName == null)
         const EditField(
           'min_failed_nodes',
-          'Minimum failing sources',
-          '故障来源阈值',
+          'mMinimumFailingSources8cbe',
           kind: 'int',
         ),
-      const EditField('tags', 'Tags (one per line)', '标签（每行一个）', kind: 'list'),
+      const EditField('tags', 'mTagsOnePerLine1cb5', kind: 'list'),
       if (panelName == null)
-        const EditField('node_ids', 'Probe source', '探测来源', kind: 'list'),
+        const EditField('node_ids', 'mProbeSource339f', kind: 'list'),
       if (instance.role == 'admin')
         const EditField(
           'channel_ids',
-          'Notification channels',
-          '通知渠道',
+          'mNotificationChannels7bf8',
           kind: 'list',
         ),
-      const EditField('enabled', 'Enabled', '启用', kind: 'bool'),
-      const EditField('public', 'Public status', '公开状态', kind: 'bool'),
+      const EditField('enabled', 'mEnabled2faa', kind: 'bool'),
+      const EditField('public', 'mPublicStatus52b7', kind: 'bool'),
     ],
   );
 }

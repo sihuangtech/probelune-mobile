@@ -5,7 +5,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import 'package:flutter/material.dart';
 
-import '../l10n.dart';
+import '../localization.dart';
 import '../models.dart';
 import '../services/api.dart';
 
@@ -136,7 +136,7 @@ class _AvailabilityHistoryState extends State<AvailabilityHistory> {
       context: context,
       builder: (dialogContext) => StatefulBuilder(
         builder: (context, update) => AlertDialog(
-          title: Text(tr(context, 'History settings', '历史设置')),
+          title: Text(message(context, 'mHistorySettings5de5')),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -144,14 +144,14 @@ class _AvailabilityHistoryState extends State<AvailabilityHistory> {
                 controller: duration,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                  labelText: tr(context, 'Minutes per cell', '每个色块的分钟数'),
+                  labelText: message(context, 'mMinutesPerCella8b7'),
                 ),
               ),
               TextField(
                 controller: lookback,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                  labelText: tr(context, 'Lookback hours', '回看小时数'),
+                  labelText: message(context, 'mLookbackHoursa95a'),
                 ),
               ),
               if (validation.isNotEmpty)
@@ -164,7 +164,7 @@ class _AvailabilityHistoryState extends State<AvailabilityHistory> {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context, false),
-              child: Text(tr(context, 'Cancel', '取消')),
+              child: Text(message(context, 'mCancel5f4d')),
             ),
             TextButton(
               onPressed: () {
@@ -179,10 +179,9 @@ class _AvailabilityHistoryState extends State<AvailabilityHistory> {
                     h > 720 ||
                     (h * 60 / m).ceil() > 2016) {
                   update(
-                    () => validation = tr(
+                    () => validation = message(
                       context,
-                      'Use 5-minute multiples, 1–720 hours and at most 2016 cells.',
-                      '粒度为 5 分钟倍数，范围 1—720 小时，最多 2016 个色块。',
+                      'mUse5MinuteMultiples172086f9',
                     ),
                   );
                   return;
@@ -193,7 +192,7 @@ class _AvailabilityHistoryState extends State<AvailabilityHistory> {
                 });
                 Navigator.pop(context, true);
               },
-              child: Text(tr(context, 'Apply', '应用')),
+              child: Text(message(context, 'mApply3b4e')),
             ),
           ],
         ),
@@ -232,16 +231,16 @@ class _AvailabilityHistoryState extends State<AvailabilityHistory> {
               ),
               const SizedBox(height: 16),
               Text(
-                '${tr(context, 'Availability', '可用率')}: ${percent(cell['availability'])}',
+                '${message(context, 'mAvailabilitye10b')}: ${percent(cell['availability'])}',
               ),
               Text(
-                '${tr(context, 'Coverage', '覆盖率')}: ${percent(cell['coverage'])}',
+                '${message(context, 'mCoverageb47a')}: ${percent(cell['coverage'])}',
               ),
               Text(
-                '${tr(context, 'Success / failure / error', '成功 / 失败 / 错误')}: ${cell['success']} / ${cell['failed']} / ${cell['errors']}',
+                '${message(context, 'mSuccessFailureError30e1')}: ${cell['success']} / ${cell['failed']} / ${cell['errors']}',
               ),
               Text(
-                '${tr(context, 'Expected samples', '应执行样本')}: ${cell['expected']}',
+                '${message(context, 'mExpectedSamplesffba')}: ${cell['expected']}',
               ),
             ],
           ),
@@ -258,14 +257,15 @@ class _AvailabilityHistoryState extends State<AvailabilityHistory> {
           .skip(cells.length > 24 ? cells.length - 24 : 0)
           .toList();
       if (error.isNotEmpty) {
-        return Text(tr(context, 'History unavailable', '历史暂不可用'));
+        return Text(message(context, 'mHistoryUnavailable75bf'));
       }
       if (recent.isEmpty) {
         return Text(
-          tr(
+          message(
             context,
-            widget.offline ? 'Offline history unavailable' : 'Loading history…',
-            widget.offline ? '离线历史暂不可用' : '正在加载历史…',
+            (widget.offline
+                ? 'mOfflineHistoryUnavailablece2b'
+                : 'mLoadingHistory7475'),
           ),
         );
       }
@@ -310,14 +310,14 @@ class _AvailabilityHistoryState extends State<AvailabilityHistory> {
               children: [
                 Expanded(
                   child: Text(
-                    tr(context, 'Availability history', '可用性历史'),
+                    message(context, 'mAvailabilityHistory3f1c'),
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ),
                 IconButton(
                   onPressed: configure,
                   icon: const Icon(Icons.tune),
-                  tooltip: tr(context, 'History settings', '历史设置'),
+                  tooltip: message(context, 'mHistorySettings5de5'),
                 ),
               ],
             ),
@@ -340,11 +340,11 @@ class _AvailabilityHistoryState extends State<AvailabilityHistory> {
             Text('$hours h / $minutes min'),
             if (error.isNotEmpty)
               Text(
-                '${tr(context, 'Unable to refresh', '刷新失败')}: $error',
+                '${message(context, 'mUnableToRefresh787f')}: $error',
                 style: TextStyle(color: Theme.of(context).colorScheme.error),
               ),
             Text(
-              '${tr(context, 'Availability', '可用率')} ${percent(history['availability'])} / ${tr(context, 'Coverage', '覆盖率')} ${percent(history['coverage'])}',
+              '${message(context, 'mAvailabilitye10b')} ${percent(history['availability'])} / ${message(context, 'mCoverageb47a')} ${percent(history['coverage'])}',
             ),
             const SizedBox(height: 12),
             Wrap(
@@ -380,11 +380,7 @@ class _AvailabilityHistoryState extends State<AvailabilityHistory> {
             ),
             const SizedBox(height: 10),
             Text(
-              tr(
-                context,
-                'Green: healthy. Orange/red: failed checks. Pale: incomplete coverage. Grey: no valid samples.',
-                '绿：正常；橙红：检查失败；浅绿：覆盖不足；灰：无有效样本。',
-              ),
+              message(context, 'mGreenHealthyOrangeRedFailedChecks8b78'),
               style: Theme.of(context).textTheme.bodySmall,
             ),
           ],

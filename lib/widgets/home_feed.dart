@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../models.dart';
-import '../l10n.dart';
+import '../localization.dart';
 import '../screens/monitor.dart';
 import '../screens/incident.dart';
 import 'status_badge.dart';
@@ -68,15 +68,15 @@ class _HomeFeedState extends State<HomeFeed> {
           final yes = await showDialog<bool>(
             context: context,
             builder: (c) => AlertDialog(
-              title: Text(tr(c, 'Archive monitor?', '归档监测？')),
+              title: Text(message(c, 'mArchiveMonitorab80')),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(c, false),
-                  child: Text(tr(c, 'Cancel', '取消')),
+                  child: Text(message(c, 'mCancel5f4d')),
                 ),
                 FilledButton(
                   onPressed: () => Navigator.pop(c, true),
-                  child: Text(tr(c, 'Confirm', '确认')),
+                  child: Text(message(c, 'mConfirm5ef9')),
                 ),
               ],
             ),
@@ -103,7 +103,7 @@ class _HomeFeedState extends State<HomeFeed> {
 
   static const types = ['', 'tcp', 'udp', 'ping', 'http', 'dns'];
   String typeLabel(String type) => switch (type) {
-    '' => tr(context, 'All types', '全部类型'),
+    '' => message(context, 'mAllTypes9c1a'),
     'ping' => 'ICMP',
     'http' => 'HTTP / HTTPS',
     _ => type.toUpperCase(),
@@ -123,7 +123,7 @@ class _HomeFeedState extends State<HomeFeed> {
     final valid = isPing
         ? (stats['received'] as num? ?? 0) > 0
         : result['status'] == 'success';
-    return valid && value is num ? '${value.toStringAsFixed(1)} ms' : '—';
+    return valid && value is num ? '${decimal(value)} ms' : '—';
   }
 
   Json get data => widget.data;
@@ -169,13 +169,13 @@ class _HomeFeedState extends State<HomeFeed> {
         .length;
     return [
       Text(
-        tr(context, 'Monitor management', '监测管理'),
+        message(context, 'mMonitorManagement436b'),
         style: Theme.of(context).textTheme.headlineMedium,
       ),
       Padding(
         padding: const EdgeInsets.symmetric(vertical: 12),
         child: Text(
-          '${tr(context, 'Healthy', '正常')} $healthy  ·  ${tr(context, 'Issues', '异常')} $issues  ·  ${tr(context, 'Online nodes', '在线节点')} $onlineNodes',
+          '${message(context, 'mHealthy1b83')} $healthy  -  ${message(context, 'mIssues5faa')} $issues  -  ${message(context, 'mOnlineNodes6438')} $onlineNodes',
         ),
       ),
       Wrap(
@@ -195,18 +195,12 @@ class _HomeFeedState extends State<HomeFeed> {
       if (checkIntroductions.containsKey(selectedType))
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 12),
-          child: Text(
-            tr(
-              context,
-              checkIntroductions[selectedType]!.$1,
-              checkIntroductions[selectedType]!.$2,
-            ),
-          ),
+          child: Text(message(context, checkIntroductions[selectedType]!)),
         ),
       const SizedBox(height: 12),
       DropdownButtonFormField<String>(
         initialValue: selectedStatus,
-        decoration: InputDecoration(labelText: tr(context, 'Status', '状态')),
+        decoration: InputDecoration(labelText: message(context, 'mStatus7082')),
         items: [
           for (final status in [
             '',
@@ -221,7 +215,7 @@ class _HomeFeedState extends State<HomeFeed> {
             DropdownMenuItem(
               value: status,
               child: status.isEmpty
-                  ? Text(tr(context, 'All statuses', '全部状态'))
+                  ? Text(message(context, 'mAllStatuses241b'))
                   : StatusBadge(status),
             ),
         ],
@@ -233,14 +227,14 @@ class _HomeFeedState extends State<HomeFeed> {
           child: TextButton.icon(
             onPressed: () => manage(null, 'add'),
             icon: const Icon(Icons.add),
-            label: Text(tr(context, 'Add monitor', '添加监测')),
+            label: Text(message(context, 'mAddMonitorfdde')),
           ),
         ),
       TextField(
         onChanged: (v) => setState(() => search = v),
         decoration: InputDecoration(
           prefixIcon: const Icon(Icons.search),
-          hintText: tr(context, 'Search monitors', '搜索监测'),
+          hintText: message(context, 'mSearchMonitors43db'),
         ),
       ),
       const SizedBox(height: 12),
@@ -264,7 +258,9 @@ class _HomeFeedState extends State<HomeFeed> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 8),
-                  child: Text('${tr(context, 'Latency', '延迟')} ${latency(m)}'),
+                  child: Text(
+                    '${message(context, 'mLatency267d')} ${latency(m)}',
+                  ),
                 ),
                 AvailabilityHistory(
                   key: ValueKey('${instance.url}:${instance.id}:${m['id']}'),
@@ -274,7 +270,7 @@ class _HomeFeedState extends State<HomeFeed> {
                   offline: offline,
                 ),
                 if (m['coverage_complete'] != true)
-                  Text(tr(context, 'Incomplete coverage', '覆盖不足')),
+                  Text(message(context, 'mIncompleteCoverage77f2')),
               ],
             ),
             trailing: widget.instance.canEdit && !offline
@@ -283,26 +279,26 @@ class _HomeFeedState extends State<HomeFeed> {
                     itemBuilder: (context) => [
                       PopupMenuItem(
                         value: 'edit',
-                        child: Text(tr(context, 'Edit', '编辑')),
+                        child: Text(message(context, 'mEditcf6b')),
                       ),
                       PopupMenuItem(
                         value: 'copy',
-                        child: Text(tr(context, 'Copy', '复制')),
+                        child: Text(message(context, 'mCopy362a')),
                       ),
                       PopupMenuItem(
                         value: 'pause',
                         child: Text(
                           m['enabled'] == true
-                              ? tr(context, 'Pause', '暂停')
-                              : tr(context, 'Resume', '恢复'),
+                              ? message(context, 'mPause81c2')
+                              : message(context, 'mResume7049'),
                         ),
                       ),
                       PopupMenuItem(
                         value: 'archive',
                         child: Text(
                           m['archived'] == true
-                              ? tr(context, 'Restore', '取消归档')
-                              : tr(context, 'Archive', '归档'),
+                              ? message(context, 'mRestore9a8d')
+                              : message(context, 'mArchive51a5'),
                         ),
                       ),
                     ],
@@ -334,7 +330,7 @@ class _HomeFeedState extends State<HomeFeed> {
     final assigned = <String>{};
     final cards = <Widget>[
       Text(
-        tr(context, 'Server health', '服务器状态'),
+        message(context, 'mServerHealth41b9'),
         style: Theme.of(context).textTheme.headlineMedium,
       ),
     ];
@@ -373,9 +369,9 @@ class _HomeFeedState extends State<HomeFeed> {
                 ),
                 StatusBadge(status),
                 Text(
-                  '${tr(context, 'Node heartbeat', '节点心跳')} ${timeText(node['last_seen'])}',
+                  '${message(context, 'mNodeHeartbeatf1f6')} ${timeText(node['last_seen'])}',
                 ),
-                if (checks.isEmpty) Text(tr(context, 'No checks', '暂无检测')),
+                if (checks.isEmpty) Text(message(context, 'mNoChecksa1b1')),
                 for (final m in checks)
                   ListTile(
                     contentPadding: EdgeInsets.zero,
@@ -404,7 +400,7 @@ class _HomeFeedState extends State<HomeFeed> {
         .where((m) => !assigned.contains(m['id']))
         .toList();
     if (remaining.isNotEmpty) {
-      cards.add(Text(tr(context, 'Panel and other targets', '面板及其他目标')));
+      cards.add(Text(message(context, 'mPanelAndOtherTargetsf637')));
     }
     for (final m in remaining) {
       cards.add(
@@ -431,7 +427,7 @@ class _HomeFeedState extends State<HomeFeed> {
 
   List<Widget> incidentCards(Instance instance) => [
     Text(
-      tr(context, 'Incident timeline', '故障时间线'),
+      message(context, 'mIncidentTimeline284d'),
       style: Theme.of(context).textTheme.headlineMedium,
     ),
     const SizedBox(height: 12),
@@ -440,17 +436,7 @@ class _HomeFeedState extends State<HomeFeed> {
       children: [
         for (final kind in ['active', 'recovered', 'all'])
           ChoiceChip(
-            label: Text(
-              tr(
-                context,
-                kind,
-                kind == 'active'
-                    ? '进行中'
-                    : kind == 'recovered'
-                    ? '已恢复'
-                    : '全部',
-              ),
-            ),
+            label: Text(statusText(context, kind)),
             selected: incidentFilter == kind,
             onSelected: (_) => setState(() => incidentFilter = kind),
           ),
@@ -470,7 +456,7 @@ class _HomeFeedState extends State<HomeFeed> {
             child: ListTile(
               title: Text(i['name'] as String),
               subtitle: Text(
-                '${timeText(i['opened_at'])}\n${tr(context, i['recovered_at'] == 0 ? 'Active' : 'Recovered', i['recovered_at'] == 0 ? '进行中' : '已恢复')}',
+                '${timeText(i['opened_at'])}\n${message(context, (i['recovered_at'] == 0 ? 'mActived2f1' : 'mRecovered1be5'))}',
               ),
               isThreeLine: true,
               trailing: Icon(
@@ -495,7 +481,7 @@ class _HomeFeedState extends State<HomeFeed> {
   ];
   List<Widget> nodeCards() => [
     Text(
-      tr(context, 'Probe nodes', '探测节点'),
+      message(context, 'mProbeNodes7d8c'),
       style: Theme.of(context).textTheme.headlineMedium,
     ),
     const SizedBox(height: 12),
@@ -507,7 +493,7 @@ class _HomeFeedState extends State<HomeFeed> {
             child: ListTile(
               title: Text(n['name'] as String),
               subtitle: Text(
-                '${n['region']} · ${n['network']}\n${timeText(n['last_seen'])}',
+                '${n['region']} - ${n['network']}\n${timeText(n['last_seen'])}',
               ),
               isThreeLine: true,
               trailing: StatusBadge(
@@ -525,12 +511,6 @@ class _HomeFeedState extends State<HomeFeed> {
   ];
   Widget empty() => Padding(
     padding: const EdgeInsets.all(32),
-    child: Text(
-      tr(
-        context,
-        'No matching entries. Adjust filters or add a monitor.',
-        '暂无匹配记录，请调整筛选或添加监测。',
-      ),
-    ),
+    child: Text(message(context, 'mNoMatchingEntriesAdjustFiltersOrdc24')),
   );
 }

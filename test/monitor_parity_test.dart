@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:probelune_mobile/generated/l10n/app_localizations.dart';
+
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:probelune_mobile/services/instances.dart';
 
@@ -23,7 +25,10 @@ final instance = Instance(
 Widget app(Widget child) => MaterialApp(
   locale: const Locale('zh'),
   supportedLocales: const [Locale('zh'), Locale('en')],
-  localizationsDelegates: GlobalMaterialLocalizations.delegates,
+  localizationsDelegates: [
+    AppLocalizations.delegate,
+    ...GlobalMaterialLocalizations.delegates,
+  ],
   home: Scaffold(body: SingleChildScrollView(child: child)),
 );
 Json monitor(String id, String type, num ms) => {
@@ -84,7 +89,10 @@ void main() {
       MaterialApp(
         locale: const Locale('zh'),
         supportedLocales: const [Locale('zh'), Locale('en')],
-        localizationsDelegates: GlobalMaterialLocalizations.delegates,
+        localizationsDelegates: [
+          AppLocalizations.delegate,
+          ...GlobalMaterialLocalizations.delegates,
+        ],
         home: ResourceEditor(
           instance: instance,
           title: 'Test',
@@ -119,6 +127,11 @@ void main() {
     await http.runWithClient(() async {
       await tester.pumpWidget(
         MaterialApp(
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            ...GlobalMaterialLocalizations.delegates,
+          ],
+          supportedLocales: AppLocalizations.supportedLocales,
           home: ResourceEditor(
             instance: instance,
             title: 'Edit',
@@ -128,7 +141,7 @@ void main() {
               'name': 'Before',
               'check': {'type': 'tcp', 'target': 'example.com'},
             },
-            fields: const [EditField('name', 'Name', '名称')],
+            fields: const [EditField('name', 'mName0f2c')],
             path: '/monitors/example',
             method: 'PUT',
           ),

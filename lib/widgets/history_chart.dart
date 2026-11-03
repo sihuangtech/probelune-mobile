@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../models.dart';
+import '../localization.dart';
 
 class HistoryChart extends StatelessWidget {
   const HistoryChart({super.key, required this.buckets, required this.width});
@@ -10,17 +11,24 @@ class HistoryChart extends StatelessWidget {
   final int width;
   @override
   Widget build(BuildContext context) => Semantics(
-    label: 'Latency history by node in milliseconds',
+    label: message(context, 'mLatency267d'),
     child: SizedBox(
       height: 180,
       width: double.infinity,
-      child: CustomPaint(painter: _HistoryPainter(buckets, width)),
+      child: CustomPaint(
+        painter: _HistoryPainter(
+          buckets,
+          width,
+          Theme.of(context).brightness == Brightness.dark,
+        ),
+      ),
     ),
   );
 }
 
 class _HistoryPainter extends CustomPainter {
-  _HistoryPainter(this.buckets, this.width);
+  _HistoryPainter(this.buckets, this.width, this.dark);
+  final bool dark;
   final List<Json> buckets;
   final int width;
   @override
@@ -32,7 +40,7 @@ class _HistoryPainter extends CustomPainter {
         .map((b) => (b['latency_ms'] as num? ?? 0).toDouble())
         .fold<double>(1, math.max);
     final axes = Paint()
-      ..color = const Color(0xffdce5df)
+      ..color = dark ? const Color(0xff354a45) : const Color(0xffdce5df)
       ..strokeWidth = 1;
     for (var n = 0; n < 4; n++) {
       final y = 12 + (size.height - 38) * n / 3;
@@ -42,7 +50,10 @@ class _HistoryPainter extends CustomPainter {
       final p = TextPainter(
         text: TextSpan(
           text: text,
-          style: const TextStyle(fontSize: 10, color: Color(0xff63747a)),
+          style: TextStyle(
+            fontSize: 10,
+            color: dark ? const Color(0xffb7c9ce) : const Color(0xff63747a),
+          ),
         ),
         textDirection: TextDirection.ltr,
       )..layout();
@@ -52,7 +63,7 @@ class _HistoryPainter extends CustomPainter {
     label('${maxY.toStringAsFixed(0)} ms', const Offset(0, 0));
     label('0', Offset(20, size.height - 34));
     final colors = [
-      const Color(0xff087f73),
+      dark ? const Color(0xff72dbc0) : const Color(0xff087f73),
       const Color(0xff628fbc),
       const Color(0xffba8645),
       const Color(0xff9873b0),
@@ -90,5 +101,5 @@ class _HistoryPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant _HistoryPainter old) =>
-      old.buckets != buckets || old.width != width;
+      old.buckets != buckets || old.width != width || old.dark != dark;
 }

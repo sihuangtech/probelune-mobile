@@ -3,18 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import '../models.dart';
-import '../l10n.dart';
+import '../localization.dart';
 import '../services/api.dart';
 
 class EditField {
-  const EditField(
-    this.key,
-    this.en,
-    this.zh, {
-    this.options,
-    this.kind = 'text',
-  });
-  final String key, en, zh, kind;
+  const EditField(this.key, this.labelKey, {this.options, this.kind = 'text'});
+  final String key, labelKey, kind;
   final List<String>? options;
 }
 
@@ -156,12 +150,12 @@ class _ResourceEditorState extends State<ResourceEditor> {
         await showDialog<void>(
           context: context,
           builder: (c) => AlertDialog(
-            title: Text(tr(c, 'Save this credential', '请保存凭据')),
+            title: Text(message(c, 'mSaveThisCredential2441')),
             content: SelectableText(secret),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(c),
-                child: Text(tr(c, 'Done', '完成')),
+                child: Text(message(c, 'mDone4bc2')),
               ),
             ],
           ),
@@ -239,7 +233,7 @@ class _ResourceEditorState extends State<ResourceEditor> {
                   ? Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(tr(context, f.en, f.zh)),
+                        Text(message(context, f.labelKey)),
                         for (final entry in widget.choices[f.key]!.entries)
                           CheckboxListTile(
                             title: Text(entry.value),
@@ -266,7 +260,7 @@ class _ResourceEditorState extends State<ResourceEditor> {
                   : f.kind == 'bool'
                   ? SwitchListTile(
                       contentPadding: EdgeInsets.zero,
-                      title: Text(tr(context, f.en, f.zh)),
+                      title: Text(message(context, f.labelKey)),
                       value: read(f.key) == true,
                       onChanged: busy
                           ? null
@@ -274,7 +268,7 @@ class _ResourceEditorState extends State<ResourceEditor> {
                     )
                   : f.kind == 'date'
                   ? ListTile(
-                      title: Text(tr(context, f.en, f.zh)),
+                      title: Text(message(context, f.labelKey)),
                       subtitle: Text(timeText(read(f.key))),
                       trailing: const Icon(Icons.calendar_month),
                       onTap: busy ? null : () => dateTime(f),
@@ -286,7 +280,7 @@ class _ResourceEditorState extends State<ResourceEditor> {
                           : f.options!.first,
                       isExpanded: true,
                       decoration: InputDecoration(
-                        labelText: tr(context, f.en, f.zh),
+                        labelText: message(context, f.labelKey),
                       ),
                       items: f.options!
                           .map(
@@ -307,7 +301,7 @@ class _ResourceEditorState extends State<ResourceEditor> {
                           : TextInputType.text,
                       maxLines: ['list', 'json'].contains(f.kind) ? 3 : 1,
                       decoration: InputDecoration(
-                        labelText: tr(context, f.en, f.zh),
+                        labelText: message(context, f.labelKey),
                       ),
                     ),
             ),
@@ -318,9 +312,7 @@ class _ResourceEditorState extends State<ResourceEditor> {
             ),
           FilledButton(
             onPressed: busy ? null : save,
-            child: Text(
-              tr(context, busy ? 'Saving…' : 'Save', busy ? '正在保存…' : '保存'),
-            ),
+            child: Text(message(context, (busy ? 'mSaving5b11' : 'mSave93f6'))),
           ),
         ],
       ),

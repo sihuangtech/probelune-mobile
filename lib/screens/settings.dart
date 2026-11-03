@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../l10n.dart';
+import '../localization.dart';
 import '../services/instances.dart';
 import '../services/push.dart';
 import 'admin_resources.dart';
@@ -16,8 +16,9 @@ class SettingsScreen extends StatelessWidget {
     try {
       await task();
       if (context.mounted) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text(tr(context, 'Saved', '已保存'))));
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(message(context, 'mSaveda841'))));
       }
     } catch (e) {
       if (context.mounted) {
@@ -34,27 +35,25 @@ class SettingsScreen extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       children: [
         Text(
-          tr(context, 'Instance & device', '实例与设备'),
+          message(context, 'mInstanceDevice9b94'),
           style: Theme.of(context).textTheme.headlineMedium,
         ),
         const SizedBox(height: 16),
         for (final entry in [
-          ('/settings', 'Instance settings', '面板设置'),
-          ('/status', 'Public status page', '公开状态页'),
-          ('/nodes', 'Node management', '节点管理'),
-          ('/diagnostics', 'Diagnostics', '即时诊断'),
-          ('/maintenance', 'Maintenance windows', '维护窗口'),
-          if (i.canEdit) ('/deliveries', 'Notification deliveries', '通知投递'),
-          if (i.role == 'admin') ...[
-            ('/channels', 'Notification channels', '通知渠道'),
-            ('/users', 'Members', '成员管理'),
-            ('/audit', 'Audit log', '审计日志'),
-          ],
-          ('/auth/sessions', 'Sessions and pairing', '会话与配对'),
-          ('/devices', 'Devices', '设备'),
+          ('/settings', 'mInstanceSettingsccf9'),
+          ('/status', 'mPublicStatusPagecf35'),
+          ('/nodes', 'mNodeManagement29e4'),
+          ('/diagnostics', 'mDiagnostics9e30'),
+          ('/maintenance', 'mMaintenanceWindowseba5'),
+          if (i.canEdit) ('/deliveries', 'mNotificationDeliveries6afd'),
+          if (i.role == 'admin') ('/channels', 'mNotificationChannels7bf8'),
+          if (i.role == 'admin') ('/users', 'mMembers1266'),
+          if (i.role == 'admin') ('/audit', 'mAuditLogc987'),
+          ('/auth/sessions', 'mSessionsAndPairing9681'),
+          ('/devices', 'mDevices1329'),
         ])
           ListTile(
-            title: Text(tr(context, entry.$2, entry.$3)),
+            title: Text(message(context, entry.$2)),
             trailing: const Icon(Icons.chevron_right),
             onTap: () => Navigator.push(
               context,
@@ -62,7 +61,7 @@ class SettingsScreen extends StatelessWidget {
                 builder: (_) => AdminResources(
                   instance: i,
                   resource: entry.$1,
-                  title: tr(context, entry.$2, entry.$3),
+                  title: message(context, entry.$2),
                 ),
               ),
             ),
@@ -73,10 +72,10 @@ class SettingsScreen extends StatelessWidget {
             children: [
               ListTile(
                 title: Text(i.url),
-                subtitle: Text('${i.username} · ${i.role}'),
+                subtitle: Text('${i.username} - ${i.role}'),
               ),
               ListTile(
-                title: Text(tr(context, 'Session expires', '会话到期')),
+                title: Text(message(context, 'mSessionExpires8b18')),
                 subtitle: Text(timeText(i.expires)),
               ),
             ],
@@ -95,19 +94,14 @@ class SettingsScreen extends StatelessWidget {
                             : push.unregister(instances),
                       )
                     : null,
-                title: Text(tr(context, 'Incident notifications', '故障推送')),
+                title: Text(message(context, 'mIncidentNotificationsf0ab')),
                 subtitle: Text(
                   pushEnabled
-                      ? tr(
+                      ? message(
                           context,
-                          'Only this device registration is changed.',
-                          '仅修改本设备在当前实例的注册。',
+                          'mOnlyThisDeviceRegistrationIsChanged44cd',
                         )
-                      : tr(
-                          context,
-                          'FCM is not configured in this build.',
-                          '当前构建尚未配置 FCM。',
-                        ),
+                      : message(context, 'mFCMIsNotConfiguredInThis8c5a'),
                 ),
               ),
             ],
@@ -116,27 +110,23 @@ class SettingsScreen extends StatelessWidget {
         Card(
           child: ListTile(
             leading: const Icon(Icons.logout),
-            title: Text(tr(context, 'Disconnect this instance', '断开当前实例')),
+            title: Text(message(context, 'mDisconnectThisInstance21c1')),
             subtitle: Text(
-              tr(
-                context,
-                'Revoke the session and remove local credentials and cache.',
-                '撤销会话并清除本地凭据与缓存。',
-              ),
+              message(context, 'mRevokeTheSessionAndRemoveLocal76df'),
             ),
             onTap: () async {
               final yes = await showDialog<bool>(
                 context: context,
                 builder: (c) => AlertDialog(
-                  title: Text(tr(c, 'Disconnect?', '断开连接？')),
+                  title: Text(message(c, 'mDisconnect72bf')),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(c, false),
-                      child: Text(tr(c, 'Cancel', '取消')),
+                      child: Text(message(c, 'mCancel5f4d')),
                     ),
                     FilledButton(
                       onPressed: () => Navigator.pop(c, true),
-                      child: Text(tr(c, 'Disconnect', '断开')),
+                      child: Text(message(c, 'mDisconnect6e12')),
                     ),
                   ],
                 ),
@@ -148,7 +138,7 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
-        Text(tr(context, 'Probelune 0.1.1 - GPL-3.0', '巡汐 0.1.1 - GPL-3.0')),
+        Text(message(context, 'mProbelune011GPL3283e')),
       ],
     );
   }

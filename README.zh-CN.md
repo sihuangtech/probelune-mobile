@@ -1,23 +1,29 @@
-# 巡汐 Probelune 移动端
+# 巡汐移动端
 
-[English](README.md) · [网页面板](https://github.com/sihuangtech/probelune-dashboard) · [产品与 PRD](https://github.com/sihuangtech/probelune)
+[English](README.md) | [网页面板](https://github.com/sihuangtech/probelune-dashboard) | [产品与 PRD](https://github.com/sihuangtech/probelune)
 
 Flutter Android/iOS 客户端，连接自托管面板，在手机查看多位置监测、处理故障并发起远程复查。手机不充当持续后台探针。
 
 可用性历史支持 15 分钟、每小时及自定义色块粒度，缺测保持未知，可用率与覆盖率分开显示；同一次诊断按节点分组查看。
 
+## 界面预览
+
+<img src="docs/images/mobile-zh-light.png" alt="使用演示数据的监测界面" width="360" />
+
+截图使用演示数据。应用支持语言切换，以及浅色、深色和跟随系统三种主题。
+
 ## 功能
 
-- 多实例保存与切换，密码登录、一次性短期二维码配对。
-- 按服务器汇总的总览，监测管理支持协议和状态筛选、列表历史色块与延迟。
-- 按权限新增、编辑、复制、暂停和归档监测，按协议配置检测参数。
-- 历史结果支持来源、状态、执行阶段筛选，翻页、色块时段选择及系统分享 JSON。
-- 节点注册与凭据轮换、通知渠道与投递记录、维护窗口。
-- 面板设置、成员管理、审计日志、会话设备管理与配对二维码，由服务器校验权限。
-- 事件时间线、确认、备注、一小时静默，由服务器校验权限。
-- 手机内查看即时复查进度、各节点结果并取消未完成任务。
-- 安全存储会话与最长 24 小时的总览缓存，离线时显示旧数据时间。
-- 跟随系统使用中英文；可选接入自己的 Firebase/APNs 原生推送。
+1. 多实例保存与切换，密码登录、一次性短期二维码配对。
+2. 按服务器汇总的总览，监测管理支持协议和状态筛选、列表历史色块与延迟。
+3. 按权限新增、编辑、复制、暂停和归档监测，按协议配置检测参数。
+4. 历史结果支持来源、状态、执行阶段筛选，翻页、色块时段选择及系统分享 JSON。
+5. 节点注册与凭据轮换、通知渠道与投递记录、维护窗口。
+6. 面板设置、成员管理、审计日志、会话设备管理与配对二维码，由服务器校验权限。
+7. 事件时间线、确认、备注、一小时静默，由服务器校验权限。
+8. 手机内查看即时复查进度、各节点结果并取消未完成任务。
+9. 安全存储会话与最长 24 小时的总览缓存，离线时显示旧数据时间。
+10. 支持简体中文、繁体中文、英语、日语、韩语、德语、法语和西班牙语，可跟随系统或手动切换；可选接入自己的 Firebase/APNs 原生推送。
 
 ## 开发与构建
 
@@ -41,7 +47,7 @@ flutter build ios --no-codesign
 
 `lib/screens` 为页面，`widgets` 为复用界面，`services` 负责网络、安全存储和推送。不内置后端、不依赖同级仓库源码。依赖使用 `flutter pub add/remove/upgrade` 官方命令管理并提交锁文件。
 
-[隐私](docs/PRIVACY.md) · [发布记录](https://github.com/sihuangtech/probelune-mobile/releases) · [贡献](CONTRIBUTING.md) · [安全](SECURITY.md) · [验收](https://github.com/sihuangtech/probelune/blob/main/docs/acceptance.md)
+[隐私](docs/PRIVACY.md) | [发布记录](https://github.com/sihuangtech/probelune-mobile/releases) | [贡献](CONTRIBUTING.md) | [安全](SECURITY.md) | [验收](https://github.com/sihuangtech/probelune/blob/main/docs/acceptance.md)
 
 采用 [GPL-3.0-or-later](LICENSE) 开源。
 
@@ -51,6 +57,8 @@ flutter build ios --no-codesign
 
 ## 联系开发者
 
-- 开发者: [Snake Konginchrist](https://github.com/Snake-Konginchrist)
-- 邮箱: [developer@skstudio.cn](mailto:developer@skstudio.cn)
-- 问题反馈: [GitHub Issues](https://github.com/sihuangtech/probelune-mobile/issues)
+1. 开发者: [Snake Konginchrist](https://github.com/Snake-Konginchrist)
+2. 邮箱: [developer@skstudio.cn](mailto:developer@skstudio.cn)
+3. 问题反馈: [GitHub Issues](https://github.com/sihuangtech/probelune-mobile/issues)
+
+[本地化说明](docs/LOCALIZATION.md)

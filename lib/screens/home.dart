@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../models.dart';
-import '../l10n.dart';
+import '../localization.dart';
+import '../services/locale.dart';
 import '../widgets/brand_icon.dart';
 import '../services/api.dart';
 import '../services/instances.dart';
@@ -157,18 +158,50 @@ class _HomeState extends State<HomeScreen> with WidgetsBindingObserver {
     final instance = widget.instances.current;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Probelune - 巡汐'),
+        title: Text(message(context, 'mProbelune972d')),
         actions: [
+          PopupMenuButton<ThemeMode>(
+            icon: const Icon(Icons.brightness_6_outlined),
+            tooltip: message(context, 'theme'),
+            onSelected: setTheme,
+            itemBuilder: (_) => [
+              for (final mode in ThemeMode.values)
+                PopupMenuItem(
+                  value: mode,
+                  child: Text(
+                    message(
+                      context,
+                      'theme${mode.name[0].toUpperCase()}${mode.name.substring(1)}',
+                    ),
+                  ),
+                ),
+            ],
+          ),
+
+          PopupMenuButton<String>(
+            icon: const Icon(Icons.language),
+            tooltip: message(context, 'mLanguagee66f'),
+            onSelected: (value) => setLanguage(value),
+            itemBuilder: (_) => [
+              PopupMenuItem(
+                value: '',
+                child: Text(message(context, 'mSystemLanguagee429')),
+              ),
+              for (final entry in languageNames.entries)
+                PopupMenuItem(value: entry.key, child: Text(entry.value)),
+            ],
+          ),
+
           if (instance != null)
             PopupMenuButton<int>(
-              tooltip: tr(context, 'Switch instance', '切换实例'),
+              tooltip: message(context, 'mSwitchInstancefd32'),
               onSelected: widget.instances.select,
               itemBuilder: (_) => widget.instances.items.indexed
                   .map(
                     (e) => PopupMenuItem(
                       value: e.$1,
                       child: Text(
-                        '${Uri.parse(e.$2.url).host} · ${e.$2.username}',
+                        '${Uri.parse(e.$2.url).host} - ${e.$2.username}',
                       ),
                     ),
                   )
@@ -177,7 +210,7 @@ class _HomeState extends State<HomeScreen> with WidgetsBindingObserver {
           IconButton(
             onPressed: connect,
             icon: const Icon(Icons.add),
-            tooltip: tr(context, 'Connect instance', '连接实例'),
+            tooltip: message(context, 'mConnectInstance7db6'),
           ),
         ],
       ),
@@ -191,11 +224,7 @@ class _HomeState extends State<HomeScreen> with WidgetsBindingObserver {
                     const BrandIcon(size: 70),
                     const SizedBox(height: 24),
                     Text(
-                      tr(
-                        context,
-                        'Every location. One clear view.',
-                        '多地观测，一目了然。',
-                      ),
+                      message(context, 'mEveryLocationOneClearViewd8d9'),
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const SizedBox(height: 20),
@@ -204,7 +233,7 @@ class _HomeState extends State<HomeScreen> with WidgetsBindingObserver {
                     FilledButton(
                       onPressed: connect,
                       child: Text(
-                        tr(context, 'Connect your dashboard', '连接你的面板'),
+                        message(context, 'mConnectYourDashboard68b1'),
                       ),
                     ),
                   ],
@@ -216,12 +245,12 @@ class _HomeState extends State<HomeScreen> with WidgetsBindingObserver {
                 if (offline)
                   MaterialBanner(
                     content: Text(
-                      '${tr(context, 'Offline / last snapshot', '离线 / 最后快照')}: ${timeText(savedAt ~/ 1000)}\n$error',
+                      '${message(context, 'mOfflineLastSnapshot32f8')}: ${timeText(savedAt ~/ 1000)}\n$error',
                     ),
                     actions: [
                       TextButton(
                         onPressed: refresh,
-                        child: Text(tr(context, 'Retry', '重试')),
+                        child: Text(message(context, 'mRetrye880')),
                       ),
                     ],
                   ),
@@ -261,24 +290,24 @@ class _HomeState extends State<HomeScreen> with WidgetsBindingObserver {
               destinations: [
                 NavigationDestination(
                   icon: const Icon(Icons.dashboard_outlined),
-                  label: tr(context, 'Overview', '总览'),
+                  label: message(context, 'mOverviewe4c2'),
                 ),
 
                 NavigationDestination(
                   icon: const Icon(Icons.monitor_heart_outlined),
-                  label: tr(context, 'Monitors', '监测管理'),
+                  label: message(context, 'mMonitors0045'),
                 ),
                 NavigationDestination(
                   icon: const Icon(Icons.notifications_outlined),
-                  label: tr(context, 'Incidents', '事件'),
+                  label: message(context, 'mIncidentsd2aa'),
                 ),
                 NavigationDestination(
                   icon: const Icon(Icons.hub_outlined),
-                  label: tr(context, 'Nodes', '节点'),
+                  label: message(context, 'mNodesc654'),
                 ),
                 NavigationDestination(
                   icon: const Icon(Icons.settings_outlined),
-                  label: tr(context, 'Settings', '设置'),
+                  label: message(context, 'mSettings4d92'),
                 ),
               ],
             ),

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-import '../l10n.dart';
+import '../localization.dart';
 import '../widgets/brand_icon.dart';
 import '../models.dart';
 import '../services/instances.dart';
@@ -57,22 +57,24 @@ class _ConnectState extends State<ConnectScreen> {
       context,
       MaterialPageRoute(builder: (_) => const ScanScreen()),
     );
-    if (value == null) return;
+    if (value == null || !mounted) return;
     try {
       final data = object(jsonDecode(value));
       if (data['type'] != 'probelune-pair' || data['version'] != 1) {
-        throw const FormatException('Unknown QR code');
+        throw const FormatException();
       }
       url.text = data['url'] as String;
       code.text = data['code'] as String;
     } catch (e) {
-      if (mounted) setState(() => error = e.toString());
+      if (mounted) {
+        setState(() => error = message(context, 'clientInvalidPairingCode'));
+      }
     }
   }
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(tr(context, 'Connect instance', '连接实例'))),
+    appBar: AppBar(title: Text(message(context, 'mConnectInstance7db6'))),
     body: Center(
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 500),
@@ -82,7 +84,7 @@ class _ConnectState extends State<ConnectScreen> {
             const BrandIcon(size: 54),
             const SizedBox(height: 20),
             Text(
-              tr(context, 'Your network, in view.', '随时掌握你的观测网络。'),
+              message(context, 'mYourNetworkInViewa101'),
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(height: 24),
@@ -91,7 +93,7 @@ class _ConnectState extends State<ConnectScreen> {
               keyboardType: TextInputType.url,
               autocorrect: false,
               decoration: InputDecoration(
-                labelText: tr(context, 'Dashboard URL', '面板地址'),
+                labelText: message(context, 'mDashboardURL0f42'),
                 hintText: 'https://monitor.example.com',
               ),
             ),
@@ -100,7 +102,7 @@ class _ConnectState extends State<ConnectScreen> {
               controller: username,
               autofillHints: const [AutofillHints.username],
               decoration: InputDecoration(
-                labelText: tr(context, 'Username', '用户名'),
+                labelText: message(context, 'mUsernamede33'),
               ),
             ),
             const SizedBox(height: 16),
@@ -109,7 +111,7 @@ class _ConnectState extends State<ConnectScreen> {
               obscureText: true,
               autofillHints: const [AutofillHints.password],
               decoration: InputDecoration(
-                labelText: tr(context, 'Password', '密码'),
+                labelText: message(context, 'mPasswordb160'),
               ),
             ),
             const SizedBox(height: 16),
@@ -117,31 +119,21 @@ class _ConnectState extends State<ConnectScreen> {
               controller: code,
               autocorrect: false,
               decoration: InputDecoration(
-                labelText: tr(context, 'Or one-time pairing code', '或使用一次性配对码'),
+                labelText: message(context, 'mOrOneTimePairingCode68ce'),
               ),
             ),
             TextButton.icon(
               onPressed: busy ? null : scan,
               icon: const Icon(Icons.qr_code_scanner),
-              label: Text(tr(context, 'Scan pairing QR', '扫描配对二维码')),
+              label: Text(message(context, 'mScanPairingQR0a98')),
             ),
             CheckboxListTile(
               contentPadding: EdgeInsets.zero,
               value: allowHttp,
               onChanged: (v) => setState(() => allowHttp = v ?? false),
-              title: Text(
-                tr(
-                  context,
-                  'Allow HTTP on a trusted local network',
-                  '允许受信任局域网 HTTP',
-                ),
-              ),
+              title: Text(message(context, 'mAllowHTTPOnATrustedLocal2703')),
               subtitle: Text(
-                tr(
-                  context,
-                  'Credentials are unencrypted over HTTP.',
-                  'HTTP 会明文传输凭据。',
-                ),
+                message(context, 'mCredentialsAreUnencryptedOverHTTPf9d2'),
               ),
             ),
             if (error.isNotEmpty)
@@ -156,8 +148,8 @@ class _ConnectState extends State<ConnectScreen> {
               onPressed: busy ? null : save,
               child: Text(
                 busy
-                    ? tr(context, 'Connecting…', '正在连接…')
-                    : tr(context, 'Connect', '连接'),
+                    ? message(context, 'mConnecting9426')
+                    : message(context, 'mConnect6a42'),
               ),
             ),
           ],
@@ -184,7 +176,7 @@ class _ScanState extends State<ScanScreen> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(tr(context, 'Scan pairing QR', '扫描配对二维码'))),
+    appBar: AppBar(title: Text(message(context, 'mScanPairingQR0a98'))),
     body: MobileScanner(
       controller: controller,
       onDetect: (capture) {

@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
-import '../l10n.dart';
+import '../localization.dart';
 import '../models.dart';
 import '../services/api.dart';
 import '../widgets/status_badge.dart';
@@ -106,13 +106,13 @@ class _DiagnosticsState extends State<DiagnosticsScreen> {
             const SizedBox(height: 8),
             StatusBadge(status),
             Text(
-              '${timeText(result['started_at'] ?? job['created_at'])} · ${result['latency_ms'] ?? '—'} ms',
+              '${timeText(result['started_at'] ?? job['created_at'])} - ${result['latency_ms'] ?? '—'} ms',
             ),
             if (result['error'] != null)
               Text('${result['stage'] ?? ''}: ${result['error']}'),
             if (result['status'] != null && result['status'] != '')
               ExpansionTile(
-                title: Text(tr(context, 'Evidence', '检测证据')),
+                title: Text(message(context, 'mEvidence7bfb')),
                 children: [
                   SelectableText(
                     const JsonEncoder.withIndent('  ').convert(result),
@@ -122,7 +122,7 @@ class _DiagnosticsState extends State<DiagnosticsScreen> {
             if (job['status'] == 'queued' || job['status'] == 'running')
               TextButton(
                 onPressed: () => cancel(job),
-                child: Text(tr(context, 'Cancel', '取消')),
+                child: Text(message(context, 'mCancel5f4d')),
               ),
           ],
         ),
@@ -132,18 +132,14 @@ class _DiagnosticsState extends State<DiagnosticsScreen> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(tr(context, 'Recheck results', '即时复查结果'))),
+    appBar: AppBar(title: Text(message(context, 'mRecheckResults8842'))),
     body: RefreshIndicator(
       onRefresh: refresh,
       child: ListView(
         padding: const EdgeInsets.all(16),
         children: [
           Text(
-            tr(
-              context,
-              'Each location reports independently. This does not change continuous monitoring.',
-              '各位置独立返回结果，不改变持续监测判定。',
-            ),
+            message(context, 'mEachLocationReportsIndependentlyThisDoesf017'),
           ),
           if (error.isNotEmpty)
             Text(

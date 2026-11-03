@@ -1,3 +1,5 @@
+import 'localization.dart';
+
 typedef Json = Map<String, dynamic>;
 
 List<Json> objects(dynamic value) => (value is List ? value : <dynamic>[])
@@ -47,7 +49,7 @@ class ApiException implements Exception {
   final String message;
   final int status;
   @override
-  String toString() => message;
+  String toString() => apiErrorMessage(message);
 }
 
 String endpoint(Json check) {

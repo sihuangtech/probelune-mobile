@@ -1,0 +1,1368 @@
+{
+  "@@locale": "en",
+  "mTCPTransmissionControlProtocolTransportLayer90c7": "TCP - Transmission Control Protocol\nTransport layer (OSI layer 4)\nTCP (Transmission Control Protocol) provides a connection-oriented, reliable, ordered byte stream using acknowledgements and retransmissions. TCP checks measure whether a target port accepts a connection and how long it takes.",
+  "@mTCPTransmissionControlProtocolTransportLayer90c7": {
+    "description": "TCP - Transmission Control Protocol\nTransport layer (OSI layer 4)\nTCP (Transmission Control Protocol) provides a connection-oriented, reliable, ordered byte stream using acknowledgements and retransmissions. TCP checks measure whether a target port accepts a connection and how long it takes."
+  },
+  "mUDPUserDatagramProtocolTransportLayer3546": "UDP - User Datagram Protocol\nTransport layer (OSI layer 4)\nUDP (User Datagram Protocol) sends connectionless datagrams without guaranteeing delivery or ordering. It is used by DNS and real-time media applications. UDP checks send a payload and wait for a reply.",
+  "@mUDPUserDatagramProtocolTransportLayer3546": {
+    "description": "UDP - User Datagram Protocol\nTransport layer (OSI layer 4)\nUDP (User Datagram Protocol) sends connectionless datagrams without guaranteeing delivery or ordering. It is used by DNS and real-time media applications. UDP checks send a payload and wait for a reply."
+  },
+  "mICMPInternetControlMessageProtocolNetworkd10d": "ICMP - Internet Control Message Protocol\nNetwork layer (OSI layer 3)\nICMP (Internet Control Message Protocol) carries error and control information for IP networks. Ping uses echo requests and replies to measure round-trip latency and loss; firewall policies can affect replies.",
+  "@mICMPInternetControlMessageProtocolNetworkd10d": {
+    "description": "ICMP - Internet Control Message Protocol\nNetwork layer (OSI layer 3)\nICMP (Internet Control Message Protocol) carries error and control information for IP networks. Ping uses echo requests and replies to measure round-trip latency and loss; firewall policies can affect replies."
+  },
+  "mHTTPHTTPSHypertextTransferProtocolApplication316e": "HTTP / HTTPS - Hypertext Transfer Protocol\nApplication layer (OSI layer 7)\nHTTP (Hypertext Transfer Protocol) exchanges web and API resources through requests and responses. HTTPS protects HTTP with TLS and authenticates the server. These checks examine response status, content, timing and certificates.",
+  "@mHTTPHTTPSHypertextTransferProtocolApplication316e": {
+    "description": "HTTP / HTTPS - Hypertext Transfer Protocol\nApplication layer (OSI layer 7)\nHTTP (Hypertext Transfer Protocol) exchanges web and API resources through requests and responses. HTTPS protects HTTP with TLS and authenticates the server. These checks examine response status, content, timing and certificates."
+  },
+  "mDNSDomainNameSystemApplicationLayer15b5": "DNS - Domain Name System\nApplication layer (OSI layer 7)\nDNS (Domain Name System) is a distributed naming system for records such as IP addresses and mail servers. Traditional queries use UDP or TCP port 53. DNS checks inspect answers and query time.",
+  "@mDNSDomainNameSystemApplicationLayer15b5": {
+    "description": "DNS - Domain Name System\nApplication layer (OSI layer 7)\nDNS (Domain Name System) is a distributed naming system for records such as IP addresses and mail servers. Traditional queries use UDP or TCP port 53. DNS checks inspect answers and query time."
+  },
+  "mMTRRouteDiagnosticsDiagnosticToolMTR3f48": "MTR - Route diagnostics\nDiagnostic tool\nMTR combines route tracing and repeated probes to report replies, latency and loss along a path. It is a diagnostic tool, not a separate protocol; router reply limits can affect its output.",
+  "@mMTRRouteDiagnosticsDiagnosticToolMTR3f48": {
+    "description": "MTR - Route diagnostics\nDiagnostic tool\nMTR combines route tracing and repeated probes to report replies, latency and loss along a path. It is a diagnostic tool, not a separate protocol; router reply limits can affect its output."
+  },
+  "mTracerouteRouteTracingDiagnosticToolTraceroute482a": "Traceroute - Route tracing\nDiagnostic tool\nTraceroute infers a route by increasing the IP time-to-live (TTL) and examining replies. It is a diagnostic tool, not a separate protocol, and can use UDP, ICMP or TCP probes.",
+  "@mTracerouteRouteTracingDiagnosticToolTraceroute482a": {
+    "description": "Traceroute - Route tracing\nDiagnostic tool\nTraceroute infers a route by increasing the IP time-to-live (TTL) and examining replies. It is a diagnostic tool, not a separate protocol, and can use UDP, ICMP or TCP probes."
+  },
+  "mProbelune972d": "Probelune",
+  "@mProbelune972d": {
+    "description": "Probelune"
+  },
+  "mLanguagee66f": "Language",
+  "@mLanguagee66f": {
+    "description": "Language"
+  },
+  "mSystemLanguagee429": "System language",
+  "@mSystemLanguagee429": {
+    "description": "System language"
+  },
+  "mSwitchInstancefd32": "Switch instance",
+  "@mSwitchInstancefd32": {
+    "description": "Switch instance"
+  },
+  "mConnectInstance7db6": "Connect instance",
+  "@mConnectInstance7db6": {
+    "description": "Connect instance"
+  },
+  "mEveryLocationOneClearViewd8d9": "Every location. One clear view.",
+  "@mEveryLocationOneClearViewd8d9": {
+    "description": "Every location. One clear view."
+  },
+  "mConnectYourDashboard68b1": "Connect your dashboard",
+  "@mConnectYourDashboard68b1": {
+    "description": "Connect your dashboard"
+  },
+  "mOfflineLastSnapshot32f8": "Offline / last snapshot",
+  "@mOfflineLastSnapshot32f8": {
+    "description": "Offline / last snapshot"
+  },
+  "mRetrye880": "Retry",
+  "@mRetrye880": {
+    "description": "Retry"
+  },
+  "mOverviewe4c2": "Overview",
+  "@mOverviewe4c2": {
+    "description": "Overview"
+  },
+  "mMonitors0045": "Monitors",
+  "@mMonitors0045": {
+    "description": "Monitors"
+  },
+  "mIncidentsd2aa": "Incidents",
+  "@mIncidentsd2aa": {
+    "description": "Incidents"
+  },
+  "mNodesc654": "Nodes",
+  "@mNodesc654": {
+    "description": "Nodes"
+  },
+  "mSettings4d92": "Settings",
+  "@mSettings4d92": {
+    "description": "Settings"
+  },
+  "mConfirmActionab35": "Confirm action",
+  "@mConfirmActionab35": {
+    "description": "Confirm action"
+  },
+  "mThisChangesTheSelectedResourced5e4": "This changes the selected resource.",
+  "@mThisChangesTheSelectedResourced5e4": {
+    "description": "This changes the selected resource."
+  },
+  "mCancel5f4d": "Cancel",
+  "@mCancel5f4d": {
+    "description": "Cancel"
+  },
+  "mConfirm5ef9": "Confirm",
+  "@mConfirm5ef9": {
+    "description": "Confirm"
+  },
+  "mCredentiale88d": "Credential",
+  "@mCredentiale88d": {
+    "description": "Credential"
+  },
+  "mDone4bc2": "Done",
+  "@mDone4bc2": {
+    "description": "Done"
+  },
+  "mProbeSources82d6": "Probe sources",
+  "@mProbeSources82d6": {
+    "description": "Probe sources"
+  },
+  "mLastHeartbeatb32b": "Last heartbeat",
+  "@mLastHeartbeatb32b": {
+    "description": "Last heartbeat"
+  },
+  "mAllowedDestinations17c6": "Allowed destinations",
+  "@mAllowedDestinations17c6": {
+    "description": "Allowed destinations"
+  },
+  "mReminderMinutes13c2": "Reminder minutes",
+  "@mReminderMinutes13c2": {
+    "description": "Reminder minutes"
+  },
+  "mAllMonitors4303": "All monitors",
+  "@mAllMonitors4303": {
+    "description": "All monitors"
+  },
+  "mExpires0c9d": "Expires",
+  "@mExpires0c9d": {
+    "description": "Expires"
+  },
+  "mAttempts3fea": "Attempts",
+  "@mAttempts3fea": {
+    "description": "Attempts"
+  },
+  "mTimezone1b5e": "Timezone",
+  "@mTimezone1b5e": {
+    "description": "Timezone"
+  },
+  "mRawDataEventRetentionDays683f": "Raw data / event retention days",
+  "@mRawDataEventRetentionDays683f": {
+    "description": "Raw data / event retention days"
+  },
+  "mPublicStatus52b7": "Public status",
+  "@mPublicStatus52b7": {
+    "description": "Public status"
+  },
+  "mEnabled2faa": "Enabled",
+  "@mEnabled2faa": {
+    "description": "Enabled"
+  },
+  "mDisabledf8cb": "Disabled",
+  "@mDisabledf8cb": {
+    "description": "Disabled"
+  },
+  "mExportData7c6b": "Export data",
+  "@mExportData7c6b": {
+    "description": "Export data"
+  },
+  "mAdd0453": "Add",
+  "@mAdd0453": {
+    "description": "Add"
+  },
+  "mCreatePairingCoded63a": "Create pairing code",
+  "@mCreatePairingCoded63a": {
+    "description": "Create pairing code"
+  },
+  "mNoEntries0577": "No entries",
+  "@mNoEntries0577": {
+    "description": "No entries"
+  },
+  "mEditcf6b": "Edit",
+  "@mEditcf6b": {
+    "description": "Edit"
+  },
+  "mSendTestc2ec": "Send test",
+  "@mSendTestc2ec": {
+    "description": "Send test"
+  },
+  "mRotateCredentialsd16e": "Rotate credentials",
+  "@mRotateCredentialsd16e": {
+    "description": "Rotate credentials"
+  },
+  "mRevokeCredentials8634": "Revoke credentials",
+  "@mRevokeCredentials8634": {
+    "description": "Revoke credentials"
+  },
+  "mRemoveac5c": "Remove",
+  "@mRemoveac5c": {
+    "description": "Remove"
+  },
+  "mResults9278": "Results",
+  "@mResults9278": {
+    "description": "Results"
+  },
+  "mMonitorConfigurationfc0e": "Monitor configuration",
+  "@mMonitorConfigurationfc0e": {
+    "description": "Monitor configuration"
+  },
+  "mProbeSource339f": "Probe source",
+  "@mProbeSource339f": {
+    "description": "Probe source"
+  },
+  "mName0f2c": "Name",
+  "@mName0f2c": {
+    "description": "Name"
+  },
+  "mGroupf7c7": "Group",
+  "@mGroupf7c7": {
+    "description": "Group"
+  },
+  "mType5196": "Type",
+  "@mType5196": {
+    "description": "Type"
+  },
+  "mIntervalSeconds640f": "Interval (seconds)",
+  "@mIntervalSeconds640f": {
+    "description": "Interval (seconds)"
+  },
+  "mFailureThreshold193c": "Failure threshold",
+  "@mFailureThreshold193c": {
+    "description": "Failure threshold"
+  },
+  "mRecoveryThresholde504": "Recovery threshold",
+  "@mRecoveryThresholde504": {
+    "description": "Recovery threshold"
+  },
+  "mMinimumFailingSources8cbe": "Minimum failing sources",
+  "@mMinimumFailingSources8cbe": {
+    "description": "Minimum failing sources"
+  },
+  "mTagsOnePerLine1cb5": "Tags (one per line)",
+  "@mTagsOnePerLine1cb5": {
+    "description": "Tags (one per line)"
+  },
+  "mNotificationChannels7bf8": "Notification channels",
+  "@mNotificationChannels7bf8": {
+    "description": "Notification channels"
+  },
+  "mEvidence7bfb": "Evidence",
+  "@mEvidence7bfb": {
+    "description": "Evidence"
+  },
+  "mRecheckResults8842": "Recheck results",
+  "@mRecheckResults8842": {
+    "description": "Recheck results"
+  },
+  "mEachLocationReportsIndependentlyThisDoesf017": "Each location reports independently. This does not change continuous monitoring.",
+  "@mEachLocationReportsIndependentlyThisDoesf017": {
+    "description": "Each location reports independently. This does not change continuous monitoring."
+  },
+  "mYourNetworkInViewa101": "Your network, in view.",
+  "@mYourNetworkInViewa101": {
+    "description": "Your network, in view."
+  },
+  "mDashboardURL0f42": "Dashboard URL",
+  "@mDashboardURL0f42": {
+    "description": "Dashboard URL"
+  },
+  "mUsernamede33": "Username",
+  "@mUsernamede33": {
+    "description": "Username"
+  },
+  "mPasswordb160": "Password",
+  "@mPasswordb160": {
+    "description": "Password"
+  },
+  "mOrOneTimePairingCode68ce": "Or one-time pairing code",
+  "@mOrOneTimePairingCode68ce": {
+    "description": "Or one-time pairing code"
+  },
+  "mScanPairingQR0a98": "Scan pairing QR",
+  "@mScanPairingQR0a98": {
+    "description": "Scan pairing QR"
+  },
+  "mAllowHTTPOnATrustedLocal2703": "Allow HTTP on a trusted local network",
+  "@mAllowHTTPOnATrustedLocal2703": {
+    "description": "Allow HTTP on a trusted local network"
+  },
+  "mCredentialsAreUnencryptedOverHTTPf9d2": "Credentials are unencrypted over HTTP.",
+  "@mCredentialsAreUnencryptedOverHTTPf9d2": {
+    "description": "Credentials are unencrypted over HTTP."
+  },
+  "mConnecting9426": "Connecting…",
+  "@mConnecting9426": {
+    "description": "Connecting…"
+  },
+  "mConnect6a42": "Connect",
+  "@mConnect6a42": {
+    "description": "Connect"
+  },
+  "mAddNote3c4b": "Add note",
+  "@mAddNote3c4b": {
+    "description": "Add note"
+  },
+  "mSave93f6": "Save",
+  "@mSave93f6": {
+    "description": "Save"
+  },
+  "mIncident9b04": "Incident",
+  "@mIncident9b04": {
+    "description": "Incident"
+  },
+  "mOpenedd49f": "Opened",
+  "@mOpenedd49f": {
+    "description": "Opened"
+  },
+  "mRecovered1be5": "Recovered",
+  "@mRecovered1be5": {
+    "description": "Recovered"
+  },
+  "mAcknowledgec88f": "Acknowledge",
+  "@mAcknowledgec88f": {
+    "description": "Acknowledge"
+  },
+  "mSilence1h2826": "Silence 1h",
+  "@mSilence1h2826": {
+    "description": "Silence 1h"
+  },
+  "mRecheck27d1": "Recheck",
+  "@mRecheck27d1": {
+    "description": "Recheck"
+  },
+  "mRecheckNow2f8d": "Recheck now",
+  "@mRecheckNow2f8d": {
+    "description": "Recheck now"
+  },
+  "mOfflineLastState83d5": "Offline / last state",
+  "@mOfflineLastState83d5": {
+    "description": "Offline / last state"
+  },
+  "mAvailabilitye10b": "Availability",
+  "@mAvailabilitye10b": {
+    "description": "Availability"
+  },
+  "mCoverageb47a": "Coverage",
+  "@mCoverageb47a": {
+    "description": "Coverage"
+  },
+  "mSamplesf600": "Samples",
+  "@mSamplesf600": {
+    "description": "Samples"
+  },
+  "mLatestEvidencefd9a": "Latest evidence",
+  "@mLatestEvidencefd9a": {
+    "description": "Latest evidence"
+  },
+  "mRecentSamples196f": "Recent samples",
+  "@mRecentSamples196f": {
+    "description": "Recent samples"
+  },
+  "mAllSources1acc": "All sources",
+  "@mAllSources1acc": {
+    "description": "All sources"
+  },
+  "mResultStatusba7c": "Result status",
+  "@mResultStatusba7c": {
+    "description": "Result status"
+  },
+  "mAllStatuses241b": "All statuses",
+  "@mAllStatuses241b": {
+    "description": "All statuses"
+  },
+  "mStageaa7d": "Stage",
+  "@mStageaa7d": {
+    "description": "Stage"
+  },
+  "mAllStages5530": "All stages",
+  "@mAllStages5530": {
+    "description": "All stages"
+  },
+  "mClearSelectedTimeRange5b74": "Clear selected time range",
+  "@mClearSelectedTimeRange5b74": {
+    "description": "Clear selected time range"
+  },
+  "mExportHistoryf23f": "Export history",
+  "@mExportHistoryf23f": {
+    "description": "Export history"
+  },
+  "mPreviousba30": "Previous",
+  "@mPreviousba30": {
+    "description": "Previous"
+  },
+  "mNexte7f5": "Next",
+  "@mNexte7f5": {
+    "description": "Next"
+  },
+  "mSaveThisCredential2441": "Save this credential",
+  "@mSaveThisCredential2441": {
+    "description": "Save this credential"
+  },
+  "mSaving5b11": "Saving…",
+  "@mSaving5b11": {
+    "description": "Saving…"
+  },
+  "mSaveda841": "Saved",
+  "@mSaveda841": {
+    "description": "Saved"
+  },
+  "mInstanceDevice9b94": "Instance & device",
+  "@mInstanceDevice9b94": {
+    "description": "Instance & device"
+  },
+  "mInstanceSettingsccf9": "Instance settings",
+  "@mInstanceSettingsccf9": {
+    "description": "Instance settings"
+  },
+  "mPublicStatusPagecf35": "Public status page",
+  "@mPublicStatusPagecf35": {
+    "description": "Public status page"
+  },
+  "mNodeManagement29e4": "Node management",
+  "@mNodeManagement29e4": {
+    "description": "Node management"
+  },
+  "mDiagnostics9e30": "Diagnostics",
+  "@mDiagnostics9e30": {
+    "description": "Diagnostics"
+  },
+  "mMaintenanceWindowseba5": "Maintenance windows",
+  "@mMaintenanceWindowseba5": {
+    "description": "Maintenance windows"
+  },
+  "mNotificationDeliveries6afd": "Notification deliveries",
+  "@mNotificationDeliveries6afd": {
+    "description": "Notification deliveries"
+  },
+  "mMembers1266": "Members",
+  "@mMembers1266": {
+    "description": "Members"
+  },
+  "mAuditLogc987": "Audit log",
+  "@mAuditLogc987": {
+    "description": "Audit log"
+  },
+  "mSessionsAndPairing9681": "Sessions and pairing",
+  "@mSessionsAndPairing9681": {
+    "description": "Sessions and pairing"
+  },
+  "mDevices1329": "Devices",
+  "@mDevices1329": {
+    "description": "Devices"
+  },
+  "mSessionExpires8b18": "Session expires",
+  "@mSessionExpires8b18": {
+    "description": "Session expires"
+  },
+  "mIncidentNotificationsf0ab": "Incident notifications",
+  "@mIncidentNotificationsf0ab": {
+    "description": "Incident notifications"
+  },
+  "mOnlyThisDeviceRegistrationIsChanged44cd": "Only this device registration is changed.",
+  "@mOnlyThisDeviceRegistrationIsChanged44cd": {
+    "description": "Only this device registration is changed."
+  },
+  "mFCMIsNotConfiguredInThis8c5a": "FCM is not configured in this build.",
+  "@mFCMIsNotConfiguredInThis8c5a": {
+    "description": "FCM is not configured in this build."
+  },
+  "mDisconnectThisInstance21c1": "Disconnect this instance",
+  "@mDisconnectThisInstance21c1": {
+    "description": "Disconnect this instance"
+  },
+  "mRevokeTheSessionAndRemoveLocal76df": "Revoke the session and remove local credentials and cache.",
+  "@mRevokeTheSessionAndRemoveLocal76df": {
+    "description": "Revoke the session and remove local credentials and cache."
+  },
+  "mDisconnect72bf": "Disconnect?",
+  "@mDisconnect72bf": {
+    "description": "Disconnect?"
+  },
+  "mDisconnect6e12": "Disconnect",
+  "@mDisconnect6e12": {
+    "description": "Disconnect"
+  },
+  "mProbelune011GPL3283e": "Probelune 0.1.1 - GPL-3.0",
+  "@mProbelune011GPL3283e": {
+    "description": "Probelune 0.1.1 - GPL-3.0"
+  },
+  "mHealthy1b83": "Healthy",
+  "@mHealthy1b83": {
+    "description": "Healthy"
+  },
+  "mUnavailable142d": "Unavailable",
+  "@mUnavailable142d": {
+    "description": "Unavailable"
+  },
+  "mPartialOutage0d1b": "Partial outage",
+  "@mPartialOutage0d1b": {
+    "description": "Partial outage"
+  },
+  "mUnknown4ff8": "Unknown",
+  "@mUnknown4ff8": {
+    "description": "Unknown"
+  },
+  "mPending6cef": "Pending",
+  "@mPending6cef": {
+    "description": "Pending"
+  },
+  "mPausedd9c5": "Paused",
+  "@mPausedd9c5": {
+    "description": "Paused"
+  },
+  "mArchived35b1": "Archived",
+  "@mArchived35b1": {
+    "description": "Archived"
+  },
+  "mFailedd9a3": "Failed",
+  "@mFailedd9a3": {
+    "description": "Failed"
+  },
+  "mSuccessd79f": "Success",
+  "@mSuccessd79f": {
+    "description": "Success"
+  },
+  "mTargetFailed7c98": "Target failed",
+  "@mTargetFailed7c98": {
+    "description": "Target failed"
+  },
+  "mExecutorError1730": "Executor error",
+  "@mExecutorError1730": {
+    "description": "Executor error"
+  },
+  "mMaintenancebef8": "Maintenance",
+  "@mMaintenancebef8": {
+    "description": "Maintenance"
+  },
+  "mHistorySettings5de5": "History settings",
+  "@mHistorySettings5de5": {
+    "description": "History settings"
+  },
+  "mMinutesPerCella8b7": "Minutes per cell",
+  "@mMinutesPerCella8b7": {
+    "description": "Minutes per cell"
+  },
+  "mLookbackHoursa95a": "Lookback hours",
+  "@mLookbackHoursa95a": {
+    "description": "Lookback hours"
+  },
+  "mUse5MinuteMultiples172086f9": "Use 5-minute multiples, 1–720 hours and at most 2016 cells.",
+  "@mUse5MinuteMultiples172086f9": {
+    "description": "Use 5-minute multiples, 1–720 hours and at most 2016 cells."
+  },
+  "mApply3b4e": "Apply",
+  "@mApply3b4e": {
+    "description": "Apply"
+  },
+  "mSuccessFailureError30e1": "Success / failure / error",
+  "@mSuccessFailureError30e1": {
+    "description": "Success / failure / error"
+  },
+  "mExpectedSamplesffba": "Expected samples",
+  "@mExpectedSamplesffba": {
+    "description": "Expected samples"
+  },
+  "mHistoryUnavailable75bf": "History unavailable",
+  "@mHistoryUnavailable75bf": {
+    "description": "History unavailable"
+  },
+  "mOfflineHistoryUnavailablece2b": "Offline history unavailable",
+  "@mOfflineHistoryUnavailablece2b": {
+    "description": "Offline history unavailable"
+  },
+  "mLoadingHistory7475": "Loading history…",
+  "@mLoadingHistory7475": {
+    "description": "Loading history…"
+  },
+  "mAvailabilityHistory3f1c": "Availability history",
+  "@mAvailabilityHistory3f1c": {
+    "description": "Availability history"
+  },
+  "mUnableToRefresh787f": "Unable to refresh",
+  "@mUnableToRefresh787f": {
+    "description": "Unable to refresh"
+  },
+  "mGreenHealthyOrangeRedFailedChecks8b78": "Green: healthy. Orange/red: failed checks. Pale: incomplete coverage. Grey: no valid samples.",
+  "@mGreenHealthyOrangeRedFailedChecks8b78": {
+    "description": "Green: healthy. Orange/red: failed checks. Pale: incomplete coverage. Grey: no valid samples."
+  },
+  "mArchiveMonitorab80": "Archive monitor?",
+  "@mArchiveMonitorab80": {
+    "description": "Archive monitor?"
+  },
+  "mAllTypes9c1a": "All types",
+  "@mAllTypes9c1a": {
+    "description": "All types"
+  },
+  "mMonitorManagement436b": "Monitor management",
+  "@mMonitorManagement436b": {
+    "description": "Monitor management"
+  },
+  "mIssues5faa": "Issues",
+  "@mIssues5faa": {
+    "description": "Issues"
+  },
+  "mOnlineNodes6438": "Online nodes",
+  "@mOnlineNodes6438": {
+    "description": "Online nodes"
+  },
+  "mStatus7082": "Status",
+  "@mStatus7082": {
+    "description": "Status"
+  },
+  "mAddMonitorfdde": "Add monitor",
+  "@mAddMonitorfdde": {
+    "description": "Add monitor"
+  },
+  "mSearchMonitors43db": "Search monitors",
+  "@mSearchMonitors43db": {
+    "description": "Search monitors"
+  },
+  "mLatency267d": "Latency",
+  "@mLatency267d": {
+    "description": "Latency"
+  },
+  "mIncompleteCoverage77f2": "Incomplete coverage",
+  "@mIncompleteCoverage77f2": {
+    "description": "Incomplete coverage"
+  },
+  "mCopy362a": "Copy",
+  "@mCopy362a": {
+    "description": "Copy"
+  },
+  "mPause81c2": "Pause",
+  "@mPause81c2": {
+    "description": "Pause"
+  },
+  "mResume7049": "Resume",
+  "@mResume7049": {
+    "description": "Resume"
+  },
+  "mRestore9a8d": "Restore",
+  "@mRestore9a8d": {
+    "description": "Restore"
+  },
+  "mArchive51a5": "Archive",
+  "@mArchive51a5": {
+    "description": "Archive"
+  },
+  "mServerHealth41b9": "Server health",
+  "@mServerHealth41b9": {
+    "description": "Server health"
+  },
+  "mNodeHeartbeatf1f6": "Node heartbeat",
+  "@mNodeHeartbeatf1f6": {
+    "description": "Node heartbeat"
+  },
+  "mNoChecksa1b1": "No checks",
+  "@mNoChecksa1b1": {
+    "description": "No checks"
+  },
+  "mPanelAndOtherTargetsf637": "Panel and other targets",
+  "@mPanelAndOtherTargetsf637": {
+    "description": "Panel and other targets"
+  },
+  "mIncidentTimeline284d": "Incident timeline",
+  "@mIncidentTimeline284d": {
+    "description": "Incident timeline"
+  },
+  "mActived2f1": "Active",
+  "@mActived2f1": {
+    "description": "Active"
+  },
+  "mProbeNodes7d8c": "Probe nodes",
+  "@mProbeNodes7d8c": {
+    "description": "Probe nodes"
+  },
+  "mNoMatchingEntriesAdjustFiltersOrdc24": "No matching entries. Adjust filters or add a monitor.",
+  "@mNoMatchingEntriesAdjustFiltersOrdc24": {
+    "description": "No matching entries. Adjust filters or add a monitor."
+  },
+  "mRegion940c": "Region",
+  "@mRegion940c": {
+    "description": "Region"
+  },
+  "mNetworkb4a4": "Network",
+  "@mNetworkb4a4": {
+    "description": "Network"
+  },
+  "mAllowedDestinationCIDRsOnePerLinecde0": "Allowed destination CIDRs (one per line)",
+  "@mAllowedDestinationCIDRsOnePerLinecde0": {
+    "description": "Allowed destination CIDRs (one per line)"
+  },
+  "mWebhookURLb6b0": "Webhook URL",
+  "@mWebhookURLb6b0": {
+    "description": "Webhook URL"
+  },
+  "mSMTPHostaeea": "SMTP host",
+  "@mSMTPHostaeea": {
+    "description": "SMTP host"
+  },
+  "mSMTPPort71b0": "SMTP port",
+  "@mSMTPPort71b0": {
+    "description": "SMTP port"
+  },
+  "mTLSMode4cfa": "TLS mode",
+  "@mTLSMode4cfa": {
+    "description": "TLS mode"
+  },
+  "mPasswordBlankToPreservecc40": "Password (blank to preserve)",
+  "@mPasswordBlankToPreservecc40": {
+    "description": "Password (blank to preserve)"
+  },
+  "mFrom107e": "From",
+  "@mFrom107e": {
+    "description": "From"
+  },
+  "mTo9c63": "To",
+  "@mTo9c63": {
+    "description": "To"
+  },
+  "mAllowedDestinationCIDRs02da": "Allowed destination CIDRs",
+  "@mAllowedDestinationCIDRs02da": {
+    "description": "Allowed destination CIDRs"
+  },
+  "mReminderIntervalMinutes0Disables167e": "Reminder interval (minutes, 0 disables)",
+  "@mReminderIntervalMinutes0Disables167e": {
+    "description": "Reminder interval (minutes, 0 disables)"
+  },
+  "mMonitorsEmptyMeansAllb675": "Monitors (empty means all)",
+  "@mMonitorsEmptyMeansAllb675": {
+    "description": "Monitors (empty means all)"
+  },
+  "mStart12e8": "Start",
+  "@mStart12e8": {
+    "description": "Start"
+  },
+  "mEndb8a1": "End",
+  "@mEndb8a1": {
+    "description": "End"
+  },
+  "mRole3657": "Role",
+  "@mRole3657": {
+    "description": "Role"
+  },
+  "mInstanceName6d10": "Instance name",
+  "@mInstanceName6d10": {
+    "description": "Instance name"
+  },
+  "mPublicURLfcdb": "Public URL",
+  "@mPublicURLfcdb": {
+    "description": "Public URL"
+  },
+  "mRawDataRetentionDays373a": "Raw data retention (days)",
+  "@mRawDataRetentionDays373a": {
+    "description": "Raw data retention (days)"
+  },
+  "mEventRetentionDays3d64": "Event retention (days)",
+  "@mEventRetentionDays3d64": {
+    "description": "Event retention (days)"
+  },
+  "mTargetb918": "Target",
+  "@mTargetb918": {
+    "description": "Target"
+  },
+  "mPortcda2": "Port",
+  "@mPortcda2": {
+    "description": "Port"
+  },
+  "mTimeoutSeconds3df8": "Timeout (seconds)",
+  "@mTimeoutSeconds3df8": {
+    "description": "Timeout (seconds)"
+  },
+  "mIPFamily75d7": "IP family",
+  "@mIPFamily75d7": {
+    "description": "IP family"
+  },
+  "mRetries8fcf": "Retries",
+  "@mRetries8fcf": {
+    "description": "Retries"
+  },
+  "mHTTPMethodaa0d": "HTTP method",
+  "@mHTTPMethodaa0d": {
+    "description": "HTTP method"
+  },
+  "mExpectedHTTPStatus7f94": "Expected HTTP status",
+  "@mExpectedHTTPStatus7f94": {
+    "description": "Expected HTTP status"
+  },
+  "mResponseContains0db8": "Response contains",
+  "@mResponseContains0db8": {
+    "description": "Response contains"
+  },
+  "mMinimumCertificateDayse78c": "Minimum certificate days",
+  "@mMinimumCertificateDayse78c": {
+    "description": "Minimum certificate days"
+  },
+  "mFollowRedirectsf007": "Follow redirects",
+  "@mFollowRedirectsf007": {
+    "description": "Follow redirects"
+  },
+  "mSkipTLSVerification1e1d": "Skip TLS verification",
+  "@mSkipTLSVerification1e1d": {
+    "description": "Skip TLS verification"
+  },
+  "mHTTPHeadersJSONc5cd": "HTTP headers (JSON)",
+  "@mHTTPHeadersJSONc5cd": {
+    "description": "HTTP headers (JSON)"
+  },
+  "mUDPEncodinga956": "UDP encoding",
+  "@mUDPEncodinga956": {
+    "description": "UDP encoding"
+  },
+  "mUDPPayload5a91": "UDP payload",
+  "@mUDPPayload5a91": {
+    "description": "UDP payload"
+  },
+  "mExpectedUDPResponse7625": "Expected UDP response",
+  "@mExpectedUDPResponse7625": {
+    "description": "Expected UDP response"
+  },
+  "mDNSRecord6c34": "DNS record",
+  "@mDNSRecord6c34": {
+    "description": "DNS record"
+  },
+  "mDNSResolverf2a1": "DNS resolver",
+  "@mDNSResolverf2a1": {
+    "description": "DNS resolver"
+  },
+  "mExpectedDNSAnswerec4a": "Expected DNS answer",
+  "@mExpectedDNSAnswerec4a": {
+    "description": "Expected DNS answer"
+  },
+  "mPacketCount8ee8": "Packet count",
+  "@mPacketCount8ee8": {
+    "description": "Packet count"
+  },
+  "mPacketSize4fa1": "Packet size",
+  "@mPacketSize4fa1": {
+    "description": "Packet size"
+  },
+  "mMaximumLossbd48": "Maximum loss (%)",
+  "@mMaximumLossbd48": {
+    "description": "Maximum loss (%)"
+  },
+  "theme": "Theme",
+  "@theme": {
+    "description": "Theme"
+  },
+  "themeLight": "Light",
+  "@themeLight": {
+    "description": "Light"
+  },
+  "themeDark": "Dark",
+  "@themeDark": {
+    "description": "Dark"
+  },
+  "themeSystem": "System",
+  "@themeSystem": {
+    "description": "System"
+  },
+  "systemLanguage": "System language",
+  "@systemLanguage": {
+    "description": "System language"
+  },
+  "backend77efc5b782": "Password is illegal",
+  "backend30059fa85c": "The node protocol version is incompatible, please upgrade",
+  "backend0bf1ddf5e3": "Monitoring configuration failed to save",
+  "backend554a0f88a2": "Continuous monitoring only supports HTTP, TCP, UDP, ICMP, DNS",
+  "backendcae78ae80f": "The maintenance window is up to 30 days, and the end time must be later than the start time",
+  "backendfb08ecec50": "The node does not support this detection type",
+  "backendb3b97ad253": "Member does not exist",
+  "backendf0abfadf01": "Invalid time zone",
+  "backende798ea7936": "Node identity has been revoked",
+  "backend7ed39f2468": "Registration credentials are invalid or have been used",
+  "backende92e0ff88c": "Please enter a valid domain name or IP address",
+  "backendf5cb75638b": "Original data is retained for 1-90 days, and events are retained for 7-365 days",
+  "backendd4ede71286": "Silence range is 1-1440 minutes",
+  "backend4bab9a51f6": "Invalid history start time",
+  "backend6116dd94fd": "Username already exists",
+  "backendd258e439de": "The continuous reminder interval is 0-1440 minutes, 0 means off",
+  "backend21ad147771": "Notification of failure to join the team",
+  "backend4b8bc83b87": "Node identity has expired",
+  "backend22e42f0b8b": "Invalid history end time",
+  "backende4d30f088f": "Invalid channel name or type",
+  "backend3e0176db84": "Webhook address is invalid",
+  "backendca898456b2": "Name cannot be empty",
+  "backend63bf14d539": "UDP expected response must use the same encoding and not exceed 4096 bytes",
+  "backend6b37c872e6": "Node role is invalid",
+  "backendb4e6094ce1": "Only GET/HEAD allowed",
+  "backend089192d1bf": "The certificate remaining days threshold should be 0-365; 0 means closed",
+  "backend93757c096d": "Invalid username or role",
+  "backend53cf2be65d": "Username 3-64 characters, password 12-72 bytes",
+  "backend246a147d6f": "Resource not found",
+  "backenda578d8a444": "The device does not exist",
+  "backend9a1be2e233": "The time range is 1-720 hours; the color block granularity is 5-1440 minutes (multiples of 5), up to 2016 color blocks",
+  "backend20fdb90888": "The port must be between 1-65535",
+  "backend05cfa09d06": "Unsupported DNS type",
+  "backend23af2fc40c": "Maximum of 100 results per batch",
+  "backend34ccc7f2c1": "Panel detection terminal already exists",
+  "backend7ba8153bc0": "Please provide the setup-token in the server data directory",
+  "backenda2073de04c": "Unsupported operations",
+  "backend4845bc3a89": "Instance address is invalid",
+  "backendbdd7083ff4": "Remarks cannot be empty and can be up to 2000 characters.",
+  "backend37b26f423c": "Password requires 12-72 bytes",
+  "backend72250c5922": "Delete failed",
+  "backend59ae12ee54": "Detection parameters exceed the allowable range",
+  "backend9d630671a5": "Pairing code has expired",
+  "backend470c39d113": "The configuration has been modified, please refresh",
+  "backend9c14bec315": "Password is invalid",
+  "backendc2498ca6f7": "The fault node threshold is illegal",
+  "backend11e0759cc7": "Channel does not exist",
+  "backend255d1b1c81": "The node reaches the continuous failure confirmation threshold",
+  "backenddef79bad4e": "Node name cannot be empty and can be up to 100 characters",
+  "backendf8f08dba30": "Invalid request header",
+  "backend7d6e5bd5a5": "History aggregation failed",
+  "backend2abd19d6d2": "Reminder that joining the team failed",
+  "backendca1f241490": "The request data format is incorrect",
+  "backend39454cc966": "Check name, node, interval and confirmation threshold; interval must be greater than deadline",
+  "backend7ece0c6188": "The instance has been initialized",
+  "backend6311301709": "Node reconnection",
+  "backendf4807ef29e": "Availability history query failed",
+  "backend912b36118f": "Status saving failed, please try again",
+  "backendad9e177686": "Aggregation query failed",
+  "backend3b1e288a33": "Probelune",
+  "backend61e31bc0e9": "Session does not exist",
+  "backendf55429a909": "The event does not exist",
+  "backend41165dea54": "Cannot disable oneself or reduce current administrator privileges",
+  "backend8cc75c1acb": "Node offline, insufficient monitoring coverage",
+  "backendf68b1b865c": "Diagnosis save failed",
+  "backend592e256282": "Invalid expected status code",
+  "backend94a00cc05d": "History query failed",
+  "backend04177a0f2a": "Failure node range changes; missing test does not mean recovery",
+  "backend8f680686b5": "The request source is not allowed",
+  "backend3a867647ea": "Status page is not enabled",
+  "backend4fb2f83913": "Unsupported IP protocol suite",
+  "backendb7d8b8e001": "Invalid delivery address",
+  "backend4110ae33f8": "Channel has been deactivated",
+  "backend9f5d026b37": "Maintenance window does not exist",
+  "backend8981fffe60": "New members must set a password",
+  "backend5d77432f22": "Monitoring does not exist",
+  "backendc4b6f10a0f": "Contains duplicate or unavailable nodes",
+  "backend71722f2cec": "SMTP must be configured with TLS/STARTTLS, host and port",
+  "backendfa0d0ae0bd": "The web page has not been built yet, please execute npm run build first",
+  "backend3ef442ce09": "Wrong username or password",
+  "backend9479b58f5f": "Device information is invalid",
+  "backend10feec408e": "Task does not exist",
+  "backend8340c95337": "UDP request must be 1-1400 bytes of valid text or hexadecimal data",
+  "backend6ad1a9bd76": "The sending address is invalid",
+  "backend36fb182395": "All configured nodes have confirmed recovery",
+  "backendfa1c67ffec": "Please log in again",
+  "backende0da742cc0": "The current role does not have permission to perform this operation",
+  "backend4f0489ae35": "Failed to save notification status",
+  "backend2082ed85d7": "Unsupported detection type",
+  "backend9a6f229ca9": "The push device has not been registered yet",
+  "backendbfdfe117b7": "Notification channel does not exist",
+  "backend40525a7328": "Save failed",
+  "backend7092999bc0": "Contains invalid nodes",
+  "backend357076cfce": "Failed to save the result, please try again",
+  "backend5de931b28d": "Please enter a valid HTTP/HTTPS URL (without user credentials and fragments)",
+  "backend192c71f285": "The selected node does not yet support this detection configuration. Please upgrade first and wait for the node to come online.",
+  "backend9f3c972389": "The request is too frequent, please try again later.",
+  "backend3d9eb0ede3": "Please select 1-20 nodes",
+  "backend881d75694c": "Node does not exist",
+  "backendeaa1941b80": "HTTP assertion or request header is too large",
+  "@backend77efc5b782": {
+    "description": "Password is illegal",
+    "source": "密码不合法"
+  },
+  "@backend30059fa85c": {
+    "description": "The node protocol version is incompatible, please upgrade",
+    "source": "节点协议版本不兼容，请升级"
+  },
+  "@backend0bf1ddf5e3": {
+    "description": "Monitoring configuration failed to save",
+    "source": "监测配置保存失败"
+  },
+  "@backend554a0f88a2": {
+    "description": "Continuous monitoring only supports HTTP, TCP, UDP, ICMP, DNS",
+    "source": "持续监测仅支持 HTTP、TCP、UDP、ICMP、DNS"
+  },
+  "@backendcae78ae80f": {
+    "description": "The maintenance window is up to 30 days, and the end time must be later than the start time",
+    "source": "维护窗口最长 30 天，结束时间必须晚于开始时间"
+  },
+  "@backendfb08ecec50": {
+    "description": "The node does not support this detection type",
+    "source": "节点不支持此检测类型"
+  },
+  "@backendb3b97ad253": {
+    "description": "Member does not exist",
+    "source": "成员不存在"
+  },
+  "@backendf0abfadf01": {
+    "description": "Invalid time zone",
+    "source": "无效时区"
+  },
+  "@backende798ea7936": {
+    "description": "Node identity has been revoked",
+    "source": "节点身份已撤销"
+  },
+  "@backend7ed39f2468": {
+    "description": "Registration credentials are invalid or have been used",
+    "source": "注册凭据无效或已使用"
+  },
+  "@backende92e0ff88c": {
+    "description": "Please enter a valid domain name or IP address",
+    "source": "请输入有效域名或 IP 地址"
+  },
+  "@backendf5cb75638b": {
+    "description": "Original data is retained for 1-90 days, and events are retained for 7-365 days",
+    "source": "原始数据保留 1—90 天，事件保留 7—365 天"
+  },
+  "@backendd4ede71286": {
+    "description": "Silence range is 1-1440 minutes",
+    "source": "静默范围为 1—1440 分钟"
+  },
+  "@backend4bab9a51f6": {
+    "description": "Invalid history start time",
+    "source": "无效历史开始时间"
+  },
+  "@backend6116dd94fd": {
+    "description": "Username already exists",
+    "source": "用户名已存在"
+  },
+  "@backendd258e439de": {
+    "description": "The continuous reminder interval is 0-1440 minutes, 0 means off",
+    "source": "持续提醒间隔为 0—1440 分钟，0 为关闭"
+  },
+  "@backend21ad147771": {
+    "description": "Notification of failure to join the team",
+    "source": "通知入队失败"
+  },
+  "@backend4b8bc83b87": {
+    "description": "Node identity has expired",
+    "source": "节点身份已失效"
+  },
+  "@backend22e42f0b8b": {
+    "description": "Invalid history end time",
+    "source": "无效历史结束时间"
+  },
+  "@backende4d30f088f": {
+    "description": "Invalid channel name or type",
+    "source": "渠道名称或类型无效"
+  },
+  "@backend3e0176db84": {
+    "description": "Webhook address is invalid",
+    "source": "Webhook 地址无效"
+  },
+  "@backendca898456b2": {
+    "description": "Name cannot be empty",
+    "source": "名称不能为空"
+  },
+  "@backend63bf14d539": {
+    "description": "UDP expected response must use the same encoding and not exceed 4096 bytes",
+    "source": "UDP 期望响应必须使用相同编码且不超过 4096 字节"
+  },
+  "@backend6b37c872e6": {
+    "description": "Node role is invalid",
+    "source": "节点角色无效"
+  },
+  "@backendb4e6094ce1": {
+    "description": "Only GET/HEAD allowed",
+    "source": "仅允许 GET/HEAD"
+  },
+  "@backend089192d1bf": {
+    "description": "The certificate remaining days threshold should be 0-365; 0 means closed",
+    "source": "证书剩余天数阈值应为 0—365；0 表示关闭"
+  },
+  "@backend93757c096d": {
+    "description": "Invalid username or role",
+    "source": "用户名或角色无效"
+  },
+  "@backend53cf2be65d": {
+    "description": "Username 3-64 characters, password 12-72 bytes",
+    "source": "用户名 3—64 字符，密码 12—72 字节"
+  },
+  "@backend246a147d6f": {
+    "description": "Resource not found",
+    "source": "未找到资源"
+  },
+  "@backenda578d8a444": {
+    "description": "The device does not exist",
+    "source": "设备不存在"
+  },
+  "@backend9a1be2e233": {
+    "description": "The time range is 1-720 hours; the color block granularity is 5-1440 minutes (multiples of 5), up to 2016 color blocks",
+    "source": "时间范围为 1—720 小时；色块粒度为 5—1440 分钟（5 的倍数），最多 2016 个色块"
+  },
+  "@backend20fdb90888": {
+    "description": "The port must be between 1-65535",
+    "source": "端口必须在 1—65535 之间"
+  },
+  "@backend05cfa09d06": {
+    "description": "Unsupported DNS type",
+    "source": "不支持的 DNS 类型"
+  },
+  "@backend23af2fc40c": {
+    "description": "Maximum of 100 results per batch",
+    "source": "每批最多 100 条结果"
+  },
+  "@backend34ccc7f2c1": {
+    "description": "Panel detection terminal already exists",
+    "source": "面板探测端已存在"
+  },
+  "@backend7ba8153bc0": {
+    "description": "Please provide the setup-token in the server data directory",
+    "source": "请提供服务器数据目录内的 setup-token"
+  },
+  "@backenda2073de04c": {
+    "description": "Unsupported operations",
+    "source": "不支持的操作"
+  },
+  "@backend4845bc3a89": {
+    "description": "Instance address is invalid",
+    "source": "实例地址无效"
+  },
+  "@backendbdd7083ff4": {
+    "description": "Remarks cannot be empty and can be up to 2000 characters.",
+    "source": "备注不能为空且最多 2000 字符"
+  },
+  "@backend37b26f423c": {
+    "description": "Password requires 12-72 bytes",
+    "source": "密码需要 12—72 字节"
+  },
+  "@backend72250c5922": {
+    "description": "Delete failed",
+    "source": "删除失败"
+  },
+  "@backend59ae12ee54": {
+    "description": "Detection parameters exceed the allowable range",
+    "source": "检测参数超出允许范围"
+  },
+  "@backend9d630671a5": {
+    "description": "Pairing code has expired",
+    "source": "配对码已失效"
+  },
+  "@backend470c39d113": {
+    "description": "The configuration has been modified, please refresh",
+    "source": "配置已被修改，请刷新"
+  },
+  "@backend9c14bec315": {
+    "description": "Password is invalid",
+    "source": "密码无效"
+  },
+  "@backendc2498ca6f7": {
+    "description": "The fault node threshold is illegal",
+    "source": "故障节点阈值不合法"
+  },
+  "@backend11e0759cc7": {
+    "description": "Channel does not exist",
+    "source": "渠道不存在"
+  },
+  "@backend255d1b1c81": {
+    "description": "The node reaches the continuous failure confirmation threshold",
+    "source": "节点达到连续失败确认阈值"
+  },
+  "@backenddef79bad4e": {
+    "description": "Node name cannot be empty and can be up to 100 characters",
+    "source": "节点名称不能为空且最多 100 字符"
+  },
+  "@backendf8f08dba30": {
+    "description": "Invalid request header",
+    "source": "无效请求头"
+  },
+  "@backend7d6e5bd5a5": {
+    "description": "History aggregation failed",
+    "source": "历史聚合失败"
+  },
+  "@backend2abd19d6d2": {
+    "description": "Reminder that joining the team failed",
+    "source": "提醒入队失败"
+  },
+  "@backendca1f241490": {
+    "description": "The request data format is incorrect",
+    "source": "请求数据格式不正确"
+  },
+  "@backend39454cc966": {
+    "description": "Check name, node, interval and confirmation threshold; interval must be greater than deadline",
+    "source": "检查名称、节点、间隔和确认阈值；间隔必须大于截止时间"
+  },
+  "@backend7ece0c6188": {
+    "description": "The instance has been initialized",
+    "source": "实例已初始化"
+  },
+  "@backend6311301709": {
+    "description": "Node reconnection",
+    "source": "节点重新连接"
+  },
+  "@backendf4807ef29e": {
+    "description": "Availability history query failed",
+    "source": "可用性历史查询失败"
+  },
+  "@backend912b36118f": {
+    "description": "Status saving failed, please try again",
+    "source": "状态保存失败，请重试"
+  },
+  "@backendad9e177686": {
+    "description": "Aggregation query failed",
+    "source": "聚合查询失败"
+  },
+  "@backend3b1e288a33": {
+    "description": "Probelune",
+    "source": "巡汐 Probelune"
+  },
+  "@backend61e31bc0e9": {
+    "description": "Session does not exist",
+    "source": "会话不存在"
+  },
+  "@backendf55429a909": {
+    "description": "The event does not exist",
+    "source": "事件不存在"
+  },
+  "@backend41165dea54": {
+    "description": "Cannot disable oneself or reduce current administrator privileges",
+    "source": "不能禁用自己或降低当前管理员权限"
+  },
+  "@backend8cc75c1acb": {
+    "description": "Node offline, insufficient monitoring coverage",
+    "source": "节点离线，监测覆盖不足"
+  },
+  "@backendf68b1b865c": {
+    "description": "Diagnosis save failed",
+    "source": "诊断保存失败"
+  },
+  "@backend592e256282": {
+    "description": "Invalid expected status code",
+    "source": "无效期望状态码"
+  },
+  "@backend94a00cc05d": {
+    "description": "History query failed",
+    "source": "历史查询失败"
+  },
+  "@backend04177a0f2a": {
+    "description": "Failure node range changes; missing test does not mean recovery",
+    "source": "失败节点范围变化；缺测不代表恢复"
+  },
+  "@backend8f680686b5": {
+    "description": "The request source is not allowed",
+    "source": "请求来源不允许"
+  },
+  "@backend3a867647ea": {
+    "description": "Status page is not enabled",
+    "source": "状态页未启用"
+  },
+  "@backend4fb2f83913": {
+    "description": "Unsupported IP protocol suite",
+    "source": "不支持的 IP 协议族"
+  },
+  "@backendb7d8b8e001": {
+    "description": "Invalid delivery address",
+    "source": "收件地址无效"
+  },
+  "@backend4110ae33f8": {
+    "description": "Channel has been deactivated",
+    "source": "渠道已停用"
+  },
+  "@backend9f5d026b37": {
+    "description": "Maintenance window does not exist",
+    "source": "维护窗口不存在"
+  },
+  "@backend8981fffe60": {
+    "description": "New members must set a password",
+    "source": "新成员必须设置密码"
+  },
+  "@backend5d77432f22": {
+    "description": "Monitoring does not exist",
+    "source": "监测不存在"
+  },
+  "@backendc4b6f10a0f": {
+    "description": "Contains duplicate or unavailable nodes",
+    "source": "包含重复或不可用节点"
+  },
+  "@backend71722f2cec": {
+    "description": "SMTP must be configured with TLS/STARTTLS, host and port",
+    "source": "SMTP 必须配置 TLS/STARTTLS、主机与端口"
+  },
+  "@backendfa0d0ae0bd": {
+    "description": "The web page has not been built yet, please execute npm run build first",
+    "source": "网页尚未构建，请先执行 npm run build"
+  },
+  "@backend3ef442ce09": {
+    "description": "Wrong username or password",
+    "source": "用户名或密码错误"
+  },
+  "@backend9479b58f5f": {
+    "description": "Device information is invalid",
+    "source": "设备信息无效"
+  },
+  "@backend10feec408e": {
+    "description": "Task does not exist",
+    "source": "任务不存在"
+  },
+  "@backend8340c95337": {
+    "description": "UDP request must be 1-1400 bytes of valid text or hexadecimal data",
+    "source": "UDP 请求必须为 1—1400 字节的有效文本或十六进制数据"
+  },
+  "@backend6ad1a9bd76": {
+    "description": "The sending address is invalid",
+    "source": "发件地址无效"
+  },
+  "@backend36fb182395": {
+    "description": "All configured nodes have confirmed recovery",
+    "source": "所有已配置节点均已确认恢复"
+  },
+  "@backendfa1c67ffec": {
+    "description": "Please log in again",
+    "source": "请重新登录"
+  },
+  "@backende0da742cc0": {
+    "description": "The current role does not have permission to perform this operation",
+    "source": "当前角色无权执行此操作"
+  },
+  "@backend4f0489ae35": {
+    "description": "Failed to save notification status",
+    "source": "通知状态保存失败"
+  },
+  "@backend2082ed85d7": {
+    "description": "Unsupported detection type",
+    "source": "不支持的检测类型"
+  },
+  "@backend9a6f229ca9": {
+    "description": "The push device has not been registered yet",
+    "source": "尚未注册推送设备"
+  },
+  "@backendbfdfe117b7": {
+    "description": "Notification channel does not exist",
+    "source": "通知渠道不存在"
+  },
+  "@backend40525a7328": {
+    "description": "Save failed",
+    "source": "保存失败"
+  },
+  "@backend7092999bc0": {
+    "description": "Contains invalid nodes",
+    "source": "包含无效节点"
+  },
+  "@backend357076cfce": {
+    "description": "Failed to save the result, please try again",
+    "source": "结果保存失败，请重试"
+  },
+  "@backend5de931b28d": {
+    "description": "Please enter a valid HTTP/HTTPS URL (without user credentials and fragments)",
+    "source": "请输入有效的 HTTP/HTTPS URL（不含用户凭据和片段）"
+  },
+  "@backend192c71f285": {
+    "description": "The selected node does not yet support this detection configuration. Please upgrade first and wait for the node to come online.",
+    "source": "所选节点尚不支持此检测配置，请先升级并等待节点上线"
+  },
+  "@backend9f3c972389": {
+    "description": "The request is too frequent, please try again later.",
+    "source": "请求过于频繁，请稍后重试"
+  },
+  "@backend3d9eb0ede3": {
+    "description": "Please select 1-20 nodes",
+    "source": "请选择 1—20 个节点"
+  },
+  "@backend881d75694c": {
+    "description": "Node does not exist",
+    "source": "节点不存在"
+  },
+  "@backendeaa1941b80": {
+    "description": "HTTP assertion or request header is too large",
+    "source": "HTTP 断言或请求头过大"
+  },
+  "clientInvalidUrl": "Use an HTTPS origin such as https://monitor.example.com",
+  "clientInvalidPairingCode": "Invalid pairing QR code",
+  "@clientInvalidUrl": {
+    "description": "Invalid dashboard URL",
+    "source": "Use an HTTPS origin such as https://monitor.example.com"
+  },
+  "@clientInvalidPairingCode": {
+    "description": "Invalid pairing QR code"
+  }
+}

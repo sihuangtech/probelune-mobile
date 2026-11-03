@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 
-import '../l10n.dart';
+import '../localization.dart';
 
 class StatusBadge extends StatelessWidget {
   const StatusBadge(this.status, {super.key});
   final String status;
   @override
   Widget build(BuildContext context) {
+    final dark = Theme.of(context).brightness == Brightness.dark;
     final color = switch (status) {
-      'healthy' || 'success' => const Color(0xff087f73),
-      'down' || 'failed' || 'failure' => const Color(0xffbd4141),
-      'partial' || 'pending' => const Color(0xffaa750e),
-      _ => const Color(0xff63747a),
+      'healthy' ||
+      'success' => dark ? const Color(0xff72dbc0) : const Color(0xff087f73),
+      'down' ||
+      'failed' ||
+      'failure' => dark ? const Color(0xffffaaa6) : const Color(0xffbd4141),
+      'partial' ||
+      'pending' => dark ? const Color(0xffffd17b) : const Color(0xffaa750e),
+      _ => dark ? const Color(0xffb7c9ce) : const Color(0xff63747a),
     };
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),

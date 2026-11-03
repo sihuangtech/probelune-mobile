@@ -6,7 +6,7 @@ import '../services/export.dart';
 import 'package:flutter/material.dart';
 
 import '../models.dart';
-import '../l10n.dart';
+import '../localization.dart';
 import '../services/api.dart';
 import '../widgets/status_badge.dart';
 import '../widgets/history_chart.dart';
@@ -133,7 +133,7 @@ class _MonitorState extends State<MonitorScreen> {
           IconButton(
             onPressed: error.isEmpty && fresh ? recheck : null,
             icon: const Icon(Icons.replay),
-            tooltip: tr(context, 'Recheck now', '立即复查'),
+            tooltip: message(context, 'mRecheckNow2f8d'),
           ),
       ],
     ),
@@ -159,7 +159,7 @@ class _MonitorState extends State<MonitorScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 12),
               child: Text(
-                '${tr(context, 'Offline / last state', '离线 / 最后状态')}: $error',
+                '${message(context, 'mOfflineLastState83d5')}: $error',
                 style: TextStyle(color: Theme.of(context).colorScheme.error),
               ),
             ),
@@ -203,7 +203,7 @@ class _MonitorState extends State<MonitorScreen> {
               child: ListTile(
                 title: Text(nodeName(s['node_id'])),
                 subtitle: Text(
-                  '${tr(context, 'Availability', '可用率')} ${percent(s['availability'])}  ·  ${tr(context, 'Coverage', '覆盖率')} ${percent(s['coverage'])}\n${tr(context, 'Samples', '样本')} ${s['success']} / ${s['failed']} / ${s['errors']}',
+                  '${message(context, 'mAvailabilitye10b')} ${percent(s['availability'])}  -  ${message(context, 'mCoverageb47a')} ${percent(s['coverage'])}\n${message(context, 'mSamplesf600')} ${s['success']} / ${s['failed']} / ${s['errors']}',
                 ),
                 isThreeLine: true,
               ),
@@ -211,7 +211,7 @@ class _MonitorState extends State<MonitorScreen> {
           ),
           const SizedBox(height: 16),
           Text(
-            tr(context, 'Latest evidence', '最近证据'),
+            message(context, 'mLatestEvidencefd9a'),
             style: Theme.of(context).textTheme.titleLarge,
           ),
           ...objects(monitor['states']).map(
@@ -233,7 +233,7 @@ class _MonitorState extends State<MonitorScreen> {
           ),
           const SizedBox(height: 16),
           Text(
-            tr(context, 'Recent samples', '最近检测'),
+            message(context, 'mRecentSamples196f'),
             style: Theme.of(context).textTheme.titleLarge,
           ),
 
@@ -241,12 +241,12 @@ class _MonitorState extends State<MonitorScreen> {
             initialValue: nodeFilter,
             isExpanded: true,
             decoration: InputDecoration(
-              labelText: tr(context, 'Probe source', '探测来源'),
+              labelText: message(context, 'mProbeSource339f'),
             ),
             items: [
               DropdownMenuItem(
                 value: '',
-                child: Text(tr(context, 'All sources', '全部来源')),
+                child: Text(message(context, 'mAllSources1acc')),
               ),
               for (final n in nodes)
                 DropdownMenuItem(
@@ -265,7 +265,7 @@ class _MonitorState extends State<MonitorScreen> {
           DropdownButtonFormField<String>(
             initialValue: statusFilter,
             decoration: InputDecoration(
-              labelText: tr(context, 'Result status', '结果状态'),
+              labelText: message(context, 'mResultStatusba7c'),
             ),
             items: [
               for (final v in ['', 'success', 'failure', 'error', 'cancelled'])
@@ -273,7 +273,7 @@ class _MonitorState extends State<MonitorScreen> {
                   value: v,
                   child: Text(
                     v.isEmpty
-                        ? tr(context, 'All statuses', '全部状态')
+                        ? message(context, 'mAllStatuses241b')
                         : statusText(context, v),
                   ),
                 ),
@@ -289,7 +289,7 @@ class _MonitorState extends State<MonitorScreen> {
           DropdownButtonFormField<String>(
             initialValue: stageFilter,
             decoration: InputDecoration(
-              labelText: tr(context, 'Stage', '执行阶段'),
+              labelText: message(context, 'mStageaa7d'),
             ),
             items: [
               for (final v in [
@@ -308,7 +308,7 @@ class _MonitorState extends State<MonitorScreen> {
                 DropdownMenuItem(
                   value: v,
                   child: Text(
-                    v.isEmpty ? tr(context, 'All stages', '全部阶段') : v,
+                    v.isEmpty ? message(context, 'mAllStages5530') : v,
                   ),
                 ),
             ],
@@ -329,20 +329,20 @@ class _MonitorState extends State<MonitorScreen> {
                 });
                 refresh();
               },
-              child: Text(tr(context, 'Clear selected time range', '清除选中时间段')),
+              child: Text(message(context, 'mClearSelectedTimeRange5b74')),
             ),
           Builder(
             builder: (c) => TextButton.icon(
               onPressed: () => shareJson(c, 'monitor-history', history),
               icon: const Icon(Icons.ios_share),
-              label: Text(tr(context, 'Export history', '导出历史')),
+              label: Text(message(context, 'mExportHistoryf23f')),
             ),
           ),
           ...objects(history['results']).map(
             (r) => ListTile(
               title: Text(nodeName(r['node_id'])),
               subtitle: Text(
-                '${timeText(r['scheduled_at'])} · ${r['latency_ms'] ?? '—'} ms\n${r['error'] ?? ''}',
+                '${timeText(r['scheduled_at'])} - ${r['latency_ms'] ?? '—'} ms\n${r['error'] ?? ''}',
               ),
               trailing: StatusBadge(r['status'] as String),
             ),
@@ -359,7 +359,7 @@ class _MonitorState extends State<MonitorScreen> {
                         refresh();
                       }
                     : null,
-                child: Text(tr(context, 'Previous', '上一页')),
+                child: Text(message(context, 'mPreviousba30')),
               ),
               Text('${offset + 1} / ${history['total'] ?? 0}'),
               TextButton(
@@ -369,7 +369,7 @@ class _MonitorState extends State<MonitorScreen> {
                         refresh();
                       }
                     : null,
-                child: Text(tr(context, 'Next', '下一页')),
+                child: Text(message(context, 'mNexte7f5')),
               ),
             ],
           ),
