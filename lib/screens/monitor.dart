@@ -347,8 +347,11 @@ class _MonitorState extends State<MonitorScreen> {
               trailing: StatusBadge(r['status'] as String),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: 12,
+            runSpacing: 6,
             children: [
               TextButton(
                 onPressed: offset > 0

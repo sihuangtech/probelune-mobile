@@ -194,24 +194,37 @@ class _HomeState extends State<HomeScreen> with WidgetsBindingObserver {
 
           if (instance != null)
             PopupMenuButton<int>(
+              icon: const Icon(Icons.dns_outlined),
               tooltip: message(context, 'mSwitchInstancefd32'),
-              onSelected: widget.instances.select,
-              itemBuilder: (_) => widget.instances.items.indexed
-                  .map(
-                    (e) => PopupMenuItem(
-                      value: e.$1,
-                      child: Text(
-                        '${Uri.parse(e.$2.url).host} - ${e.$2.username}',
-                      ),
+              onSelected: (index) {
+                if (index < 0) {
+                  connect();
+                } else {
+                  widget.instances.select(index);
+                }
+              },
+              itemBuilder: (_) => [
+                for (final entry in widget.instances.items.indexed)
+                  CheckedPopupMenuItem(
+                    value: entry.$1,
+                    checked: entry.$2 == instance,
+                    child: Text(
+                      '${Uri.parse(entry.$2.url).host} - ${entry.$2.username}',
                     ),
-                  )
-                  .toList(),
+                  ),
+                const PopupMenuDivider(),
+                PopupMenuItem(
+                  value: -1,
+                  child: Text(message(context, 'mConnectInstance7db6')),
+                ),
+              ],
+            )
+          else
+            IconButton(
+              onPressed: connect,
+              icon: const Icon(Icons.add),
+              tooltip: message(context, 'mConnectInstance7db6'),
             ),
-          IconButton(
-            onPressed: connect,
-            icon: const Icon(Icons.add),
-            tooltip: message(context, 'mConnectInstance7db6'),
-          ),
         ],
       ),
       body: instance == null

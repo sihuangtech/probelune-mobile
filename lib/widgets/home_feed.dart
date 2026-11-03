@@ -180,7 +180,7 @@ class _HomeFeedState extends State<HomeFeed> {
       ),
       Wrap(
         spacing: 8,
-        runSpacing: 4,
+        runSpacing: 8,
         children: [
           for (final type in types)
             ChoiceChip(
@@ -221,6 +221,7 @@ class _HomeFeedState extends State<HomeFeed> {
         ],
         onChanged: (v) => setState(() => selectedStatus = v ?? ''),
       ),
+      const SizedBox(height: 12),
       if (widget.instance.canEdit && !offline)
         Align(
           alignment: Alignment.centerRight,
@@ -367,7 +368,9 @@ class _HomeFeedState extends State<HomeFeed> {
                   node['name'] as String,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
+                const SizedBox(height: 8),
                 StatusBadge(status),
+                const SizedBox(height: 8),
                 Text(
                   '${message(context, 'mNodeHeartbeatf1f6')} ${timeText(node['last_seen'])}',
                 ),
@@ -433,6 +436,7 @@ class _HomeFeedState extends State<HomeFeed> {
     const SizedBox(height: 12),
     Wrap(
       spacing: 8,
+      runSpacing: 8,
       children: [
         for (final kind in ['active', 'recovered', 'all'])
           ChoiceChip(
@@ -442,6 +446,7 @@ class _HomeFeedState extends State<HomeFeed> {
           ),
       ],
     ),
+    const SizedBox(height: 12),
     if (incidents.isEmpty) empty(),
     ...incidents
         .where(

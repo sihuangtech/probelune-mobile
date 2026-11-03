@@ -341,6 +341,7 @@ class _AvailabilityHistoryState extends State<AvailabilityHistory> {
                   ),
               ],
             ),
+            const SizedBox(height: 8),
             Text('$hours h / $minutes min'),
             if (error.isNotEmpty)
               Text(
