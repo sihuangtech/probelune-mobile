@@ -316,5 +316,6 @@
   "backendeaa1941b80": "El encabezado de solicitud o aserción HTTP es demasiado grande",
   "clientInvalidUrl": "Introduce una dirección HTTPS, por ejemplo https://monitor.example.com",
   "clientInvalidPairingCode": "Código QR de vinculación no válido",
-  "aboutApp": "Acerca de Probelune"
+  "aboutApp": "Acerca de Probelune",
+  "aboutDescription": "Probelune es una aplicación de código abierto para supervisar servicios y diagnosticar redes. Conéctala a tu panel autoalojado para consultar el estado de los servidores, la latencia y el historial de disponibilidad, gestionar la supervisión y las alertas e investigar problemas de red desde tu teléfono."
 }

@@ -316,5 +316,6 @@
   "backendeaa1941b80": "HTTP-Assertion oder Anforderungsheader ist zu groß",
   "clientInvalidUrl": "Geben Sie eine HTTPS-Adresse ein, zum Beispiel https://monitor.example.com",
   "clientInvalidPairingCode": "Ungültiger Kopplungs-QR-Code",
-  "aboutApp": "Über Probelune"
+  "aboutApp": "Über Probelune",
+  "aboutDescription": "Probelune ist eine Open-Source-App zur Dienstüberwachung und Netzwerkdiagnose. Verbinde sie mit deinem selbst gehosteten Dashboard, um auf dem Smartphone Serverstatus, Latenz und Verfügbarkeitsverlauf zu prüfen, Überwachungen und Benachrichtigungen zu verwalten und Netzwerkprobleme zu untersuchen."
 }

@@ -316,5 +316,6 @@
   "backendeaa1941b80": "L'assertion HTTP ou l'en-tête de requête est trop volumineux",
   "clientInvalidUrl": "Saisissez une adresse HTTPS, par exemple https://monitor.example.com",
   "clientInvalidPairingCode": "Code QR d’association non valide",
-  "aboutApp": "À propos de Probelune"
+  "aboutApp": "À propos de Probelune",
+  "aboutDescription": "Probelune est une application open source de surveillance des services et de diagnostic réseau. Connectez-la à votre tableau de bord auto-hébergé pour consulter l’état des serveurs, la latence et l’historique de disponibilité, gérer les surveillances et les alertes, et analyser les problèmes réseau depuis votre téléphone."
 }

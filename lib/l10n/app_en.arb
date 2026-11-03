@@ -1365,5 +1365,9 @@
   "@clientInvalidPairingCode": {
     "description": "Invalid pairing QR code"
   },
-  "aboutApp": "About Probelune"
+  "aboutApp": "About Probelune",
+  "aboutDescription": "Probelune is an open-source service monitoring and network diagnostics app. Connect to your self-hosted dashboard to check server health, latency and availability history, manage monitors and alerts, and investigate network issues from your phone.",
+  "@aboutDescription": {
+    "description": "Short introduction on the About page"
+  }
 }

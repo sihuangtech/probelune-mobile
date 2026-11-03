@@ -316,5 +316,6 @@
   "backendeaa1941b80": "HTTP 어설션 또는 요청 헤더가 너무 큽니다.",
   "clientInvalidUrl": "HTTPS 대시보드 주소를 입력하세요. 예: https://monitor.example.com",
   "clientInvalidPairingCode": "유효하지 않은 페어링 QR 코드입니다",
-  "aboutApp": "Probelune 정보"
+  "aboutApp": "Probelune 정보",
+  "aboutDescription": "Probelune은 서비스 모니터링과 네트워크 진단을 위한 오픈 소스 앱입니다. 직접 배포한 대시보드에 연결하여 휴대폰에서 서버 상태, 지연 시간과 가용성 기록을 확인하고, 모니터링과 알림을 관리하며 네트워크 문제를 조사할 수 있습니다."
 }

@@ -78,6 +78,13 @@ class _AboutScreenState extends State<AboutScreen> {
                 },
               ),
             ),
+            const SizedBox(height: 12),
+            Text(
+              message(context, 'aboutDescription'),
+              style: Theme.of(context).textTheme.bodyLarge
+                  ?.copyWith(height: 1.6),
+            ),
+            const SizedBox(height: 24),
             const Divider(),
             ListTile(
               title: const Text('GPL-3.0-or-later'),

@@ -316,5 +316,6 @@
   "backendeaa1941b80": "HTTP 斷言或請求頭過大",
   "clientInvalidUrl": "請輸入 HTTPS 面板位址，例如 https://monitor.example.com",
   "clientInvalidPairingCode": "配對 QR 碼無效",
-  "aboutApp": "關於Probelune"
+  "aboutApp": "關於Probelune",
+  "aboutDescription": "Probelune 是一款開源的服務監測與網路診斷應用程式。連接你自行部署的面板，即可在手機上查看伺服器狀態、延遲與可用性歷史，管理監測與警報，並排查網路問題。"
 }

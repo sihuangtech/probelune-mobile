@@ -335,6 +335,7 @@ String localizedMessage(AppLocalizations messages, String key) => switch (key) {
   'clientInvalidUrl' => messages.clientInvalidUrl,
   'clientInvalidPairingCode' => messages.clientInvalidPairingCode,
   'aboutApp' => messages.aboutApp,
+  'aboutDescription' => messages.aboutDescription,
   _ => key,
 };
 String? localizedBackendError(AppLocalizations messages, String source) =>
