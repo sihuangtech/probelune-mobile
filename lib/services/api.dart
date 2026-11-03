@@ -35,7 +35,7 @@ class Api {
       final request = http.Request(method, Uri.parse('$url/api/v1$path'))
         ..followRedirects = false
         ..headers['Content-Type'] = 'application/json'
-        ..headers['User-Agent'] = 'Probelune Mobile/0.1.0';
+        ..headers['User-Agent'] = 'Probelune Mobile/0.1.1';
       if (token.isNotEmpty) request.headers['Authorization'] = 'Bearer $token';
       if (body != null) request.body = jsonEncode(body);
       final response = await http.Response.fromStream(

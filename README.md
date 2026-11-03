@@ -4,6 +4,8 @@
 
 The Flutter Android/iOS companion for **Probelune (巡汐)**. Connect to your dashboards, compare observations, investigate incidents and start remote rechecks from your phone. The app does not run a background probe.
 
+Availability history supports 15-minute, hourly and custom cell durations. Missing samples remain unknown; coverage is displayed separately from availability. Diagnostic runs remain grouped across nodes.
+
 ## Features
 
 - Multiple self-hosted instances; password login or short-lived, single-use pairing QR codes.

@@ -8,6 +8,7 @@ import '../l10n.dart';
 import '../services/api.dart';
 import '../widgets/status_badge.dart';
 import '../widgets/history_chart.dart';
+import '../widgets/availability_history.dart';
 import 'diagnostics.dart';
 
 class MonitorScreen extends StatefulWidget {
@@ -144,6 +145,10 @@ class _MonitorState extends State<MonitorScreen> {
               ),
             ),
           const SizedBox(height: 20),
+          AvailabilityHistory(
+            instance: widget.instance,
+            monitorId: monitor['id'] as String,
+          ),
           SegmentedButton<int>(
             segments: const [
               ButtonSegment(value: 1, label: Text('1h')),

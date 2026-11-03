@@ -43,12 +43,19 @@ class _DiagnosticsState extends State<DiagnosticsScreen> {
     super.dispose();
   }
 
+  String get diagnosticPath {
+    final batch = widget.jobs.firstOrNull?['batch_id'];
+    return batch is String && batch.isNotEmpty
+        ? '/diagnostics?batch_id=${Uri.encodeQueryComponent(batch)}'
+        : '/diagnostics';
+  }
+
   Future<void> refresh() async {
     if (busy) return;
     busy = true;
     try {
       final response = await Future.wait([
-        api.request('/diagnostics'),
+        api.request(diagnosticPath),
         api.request('/nodes'),
       ]);
       final ids = widget.jobs.map((j) => j['id']).toSet();
