@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:probelune_mobile/services/instances.dart';
+
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:flutter/material.dart';
@@ -141,5 +144,30 @@ void main() {
     expect(body['name'], 'After');
     expect((body['check'] as Map).containsKey('headers'), isFalse);
     expect(saved!.headers['Authorization'], 'Bearer test');
+  });
+  test('Saved dashboard selection survives restarting the app', () async {
+    FlutterSecureStorage.setMockInitialValues({});
+    final instances = Instances();
+    instances.items.addAll([
+      Instance(
+        url: 'https://one.example.com',
+        username: 'viewer',
+        role: 'viewer',
+        token: 'one',
+        expires: 0,
+      ),
+      Instance(
+        url: 'https://two.example.com',
+        username: 'viewer',
+        role: 'viewer',
+        token: 'two',
+        expires: 0,
+      ),
+    ]);
+    instances.selected = 1;
+    await instances.persist();
+    final reloaded = Instances();
+    await reloaded.load();
+    expect(reloaded.current?.url, 'https://two.example.com');
   });
 }

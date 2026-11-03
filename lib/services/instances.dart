@@ -19,6 +19,14 @@ class Instances extends ChangeNotifier {
       final raw = await _storage.read(key: 'instances');
       if (raw != null) {
         items.addAll(objects(jsonDecode(raw)).map(Instance.fromJson));
+        final selectedRaw = await _storage.read(key: 'selected_instance');
+        if (selectedRaw != null) {
+          final saved = object(jsonDecode(selectedRaw));
+          final index = items.indexWhere(
+            (i) => i.url == saved['url'] && i.username == saved['username'],
+          );
+          if (index >= 0) selected = index;
+        }
       }
     } catch (e) {
       error = 'Could not unlock saved instances: $e';
@@ -31,12 +39,23 @@ class Instances extends ChangeNotifier {
       key: 'instances',
       value: jsonEncode(items.map((i) => i.toJson()).toList()),
     );
+    final instance = current;
+    if (instance != null) {
+      await _storage.write(
+        key: 'selected_instance',
+        value: jsonEncode({'url': instance.url, 'username': instance.username}),
+      );
+    }
     notifyListeners();
   }
 
   void select(int index) {
     selected = index;
     notifyListeners();
+    persist().catchError((Object e) {
+      error = 'Could not save selected instance: $e';
+      notifyListeners();
+    });
   }
 
   Future<void> connect(
