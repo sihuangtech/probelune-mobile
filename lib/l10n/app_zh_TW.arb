@@ -7,7 +7,7 @@
   "mDNSDomainNameSystemApplicationLayer15b5": "DNS - 網域名稱系統\n應用程式層（OSI 第 7 層）\nDNS（網域名稱系統）是用於記錄（例如 IP 位址和郵件伺服器）的分散式命名系統。傳統查詢使用 UDP 或 TCP 連接埠 53。 DNS 檢查檢查答案和查詢時間。",
   "mMTRRouteDiagnosticsDiagnosticToolMTR3f48": "MTR - 路由診斷\n診斷工具\nMTR 結合路由追蹤和重複測試來報告沿路徑的答案、延遲和遺失。它是一個診斷工具，而不是一個單獨的協定；路由器回覆限制會影響其輸出。",
   "mTracerouteRouteTracingDiagnosticToolTraceroute482a": "Traceroute - 路由追蹤 \n 診斷工具 \n Traceroute 透過增加 IP 生存時間 (TTL) 並檢查回復來推斷路由。它是一個診斷工具，而不是一個單獨的協議，可以使用 UDP、ICMP 或 TCP 探測。",
-  "mProbelune972d": "巡汐",
+  "mProbelune972d": "Probelune",
   "mLanguagee66f": "語言",
   "mSystemLanguagee429": "系統語言",
   "mSwitchInstancefd32": "切換實例",
@@ -273,7 +273,7 @@
   "backendf4807ef29e": "可用性歷史查詢失敗",
   "backend912b36118f": "狀態儲存失敗，請重試",
   "backendad9e177686": "聚合查詢失敗",
-  "backend3b1e288a33": "巡汐 Probelune",
+  "backend3b1e288a33": "Probelune",
   "backend61e31bc0e9": "會話不存在",
   "backendf55429a909": "事件不存在",
   "backend41165dea54": "不能停用自己或降低目前管理員權限",
@@ -316,5 +316,5 @@
   "backendeaa1941b80": "HTTP 斷言或請求頭過大",
   "clientInvalidUrl": "請輸入 HTTPS 面板位址，例如 https://monitor.example.com",
   "clientInvalidPairingCode": "配對 QR 碼無效",
-  "aboutApp": "關於巡汐"
+  "aboutApp": "關於Probelune"
 }

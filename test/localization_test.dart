@@ -37,7 +37,7 @@ void main() {
         preferredLocale.value = localeFromTag(tag);
         preferredTheme.value = ThemeMode.dark;
         await tester.pumpAndSettle();
-        final title = tag.startsWith('zh') ? '巡汐' : 'Probelune';
+        final title = 'Probelune';
         expect(find.text(title), findsOneWidget);
         expect(find.text('Probelune - 巡汐'), findsNothing);
         final context = tester.element(find.byType(Scaffold).first);

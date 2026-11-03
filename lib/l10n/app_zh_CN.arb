@@ -7,7 +7,7 @@
   "mDNSDomainNameSystemApplicationLayer15b5": "DNS - 域名系统\n应用层（OSI 第 7 层）\nDNS（Domain Name System，域名系统）是一套分布式命名系统，用于查询域名对应的 IP 地址、邮件服务器等资源记录，传统查询通常使用 UDP 或 TCP 的 53 端口。DNS 探测检查解析结果和查询耗时。",
   "mMTRRouteDiagnosticsDiagnosticToolMTR3f48": "MTR - 路由诊断工具\n诊断工具\nMTR 是结合路由追踪与连续 Ping 的网络诊断工具，展示到目标路径上各跳的响应、延迟和丢包情况。它不是独立的通信协议；中间路由器的应答限制可能影响显示结果。",
   "mTracerouteRouteTracingDiagnosticToolTraceroute482a": "Traceroute - 路由追踪工具\n诊断工具\nTraceroute 是路由追踪工具，通过逐步增加 IP 报文的生存时间（TTL）并分析返回报文推断路径。它不是独立的通信协议，工具可使用 UDP、ICMP 或 TCP 发送探测。",
-  "mProbelune972d": "巡汐",
+  "mProbelune972d": "Probelune",
   "mLanguagee66f": "语言",
   "mSystemLanguagee429": "跟随系统",
   "mSwitchInstancefd32": "切换实例",
@@ -119,7 +119,7 @@
   "mRevokeTheSessionAndRemoveLocal76df": "撤销会话并清除本地凭据与缓存。",
   "mDisconnect72bf": "断开连接？",
   "mDisconnect6e12": "断开",
-  "mProbelune011GPL3283e": "巡汐 0.1.1 - GPL-3.0",
+  "mProbelune011GPL3283e": "Probelune 0.1.1 - GPL-3.0",
   "mHealthy1b83": "正常",
   "mUnavailable142d": "异常",
   "mPartialOutage0d1b": "部分检测异常",
@@ -273,7 +273,7 @@
   "backendf4807ef29e": "可用性历史查询失败",
   "backend912b36118f": "状态保存失败，请重试",
   "backendad9e177686": "聚合查询失败",
-  "backend3b1e288a33": "巡汐 Probelune",
+  "backend3b1e288a33": "Probelune",
   "backend61e31bc0e9": "会话不存在",
   "backendf55429a909": "事件不存在",
   "backend41165dea54": "不能禁用自己或降低当前管理员权限",
@@ -316,5 +316,5 @@
   "backendeaa1941b80": "HTTP 断言或请求头过大",
   "clientInvalidUrl": "请输入 HTTPS 面板地址，例如 https://monitor.example.com",
   "clientInvalidPairingCode": "配对二维码无效",
-  "aboutApp": "关于巡汐"
+  "aboutApp": "关于Probelune"
 }
