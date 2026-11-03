@@ -28,8 +28,10 @@ class ResourceEditor extends StatefulWidget {
     required this.path,
     this.method = 'POST',
     this.choices = const {},
+    this.hint,
   });
   final Instance instance;
+  final String? hint;
   final String title, path, method;
   final Json value;
   final List<EditField> fields;
@@ -225,6 +227,11 @@ class _ResourceEditorState extends State<ResourceEditor> {
       child: ListView(
         padding: const EdgeInsets.all(20),
         children: [
+          if (widget.hint != null)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: Text(widget.hint!),
+            ),
           for (final f in widget.fields.where(visible))
             Padding(
               padding: const EdgeInsets.only(bottom: 16),

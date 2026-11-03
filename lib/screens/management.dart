@@ -144,6 +144,10 @@ Future<bool?> editMonitor(
         }
       : object(jsonDecode(jsonEncode(monitor)));
   v['check'] = {...defaultCheck(), ...object(v['check'])};
+  if (source != null) {
+    v['node_ids'] = [source['id']];
+    v['min_failed_nodes'] = 1;
+  }
   if (copy) {
     v.remove('id');
     v['version'] = 0;
@@ -151,8 +155,12 @@ Future<bool?> editMonitor(
   return Navigator.push<bool>(
     context,
     MaterialPageRoute(
-      builder: (_) =>
-          MonitorEditorScreen(instance: instance, value: v, choices: choices),
+      builder: (_) => MonitorEditorScreen(
+        instance: instance,
+        value: v,
+        choices: choices,
+        panelName: source?['name'] as String?,
+      ),
     ),
   );
 }
@@ -163,8 +171,10 @@ class MonitorEditorScreen extends StatelessWidget {
     required this.instance,
     required this.value,
     required this.choices,
+    this.panelName,
   });
   final Instance instance;
+  final String? panelName;
   final Json value;
   final Map<String, Map<String, String>> choices;
   @override
@@ -173,6 +183,9 @@ class MonitorEditorScreen extends StatelessWidget {
     title: tr(context, 'Monitor configuration', '监测配置'),
     value: value,
     choices: choices,
+    hint: panelName == null
+        ? null
+        : tr(context, 'Probe source: $panelName', '探测来源：$panelName'),
     path: '/monitors${value['id'] == null ? '' : '/${value['id']}'}',
     method: value['id'] == null ? 'POST' : 'PUT',
     fields: [
@@ -198,14 +211,16 @@ class MonitorEditorScreen extends StatelessWidget {
         '恢复确认次数',
         kind: 'int',
       ),
-      const EditField(
-        'min_failed_nodes',
-        'Minimum failing sources',
-        '故障来源阈值',
-        kind: 'int',
-      ),
+      if (panelName == null)
+        const EditField(
+          'min_failed_nodes',
+          'Minimum failing sources',
+          '故障来源阈值',
+          kind: 'int',
+        ),
       const EditField('tags', 'Tags (one per line)', '标签（每行一个）', kind: 'list'),
-      const EditField('node_ids', 'Probe source', '探测来源', kind: 'list'),
+      if (panelName == null)
+        const EditField('node_ids', 'Probe source', '探测来源', kind: 'list'),
       if (instance.role == 'admin')
         const EditField(
           'channel_ids',

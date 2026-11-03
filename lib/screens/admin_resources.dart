@@ -297,7 +297,8 @@ class _AdminResourcesState extends State<AdminResources> {
         if (panel != null) value['node_ids'] = [panel['id']];
         fields = [
           ...checkFields,
-          const EditField('node_ids', 'Probe sources', '探测来源', kind: 'list'),
+          if (panel == null)
+            const EditField('node_ids', 'Probe sources', '探测来源', kind: 'list'),
         ];
     }
     if (row != null &&
