@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../localization.dart';
 import '../services/instances.dart';
@@ -38,7 +40,39 @@ class SettingsScreen extends StatelessWidget {
           message(context, 'mInstanceDevice9b94'),
           style: Theme.of(context).textTheme.headlineMedium,
         ),
-        const SizedBox(height: 16),
+        Align(
+          alignment: AlignmentDirectional.centerEnd,
+          child: IconButton(
+            tooltip: 'GitHub',
+            icon: const FaIcon(FontAwesomeIcons.github),
+            onPressed: () async {
+              final uri = Uri.https(
+                'github.com',
+                '/sihuangtech/probelune-mobile',
+              );
+              try {
+                if (await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+                  return;
+                }
+              } catch (_) {}
+              if (context.mounted) {
+                showDialog<void>(
+                  context: context,
+                  builder: (c) => AlertDialog(
+                    title: const Text('GitHub'),
+                    content: SelectableText(uri.toString()),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(c),
+                        child: Text(message(c, 'mDone4bc2')),
+                      ),
+                    ],
+                  ),
+                );
+              }
+            },
+          ),
+        ),
         for (final entry in [
           ('/settings', 'mInstanceSettingsccf9'),
           ('/status', 'mPublicStatusPagecf35'),

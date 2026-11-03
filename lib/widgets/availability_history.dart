@@ -211,7 +211,7 @@ class _AvailabilityHistoryState extends State<AvailabilityHistory> {
     'partial' => const Color(0xffd9a23d),
     'down' => const Color(0xffcb5753),
     'incomplete' => const Color(0xff8bbeb1),
-    _ => const Color(0xffd9e1df),
+    _ => Theme.of(context).colorScheme.surfaceContainerHighest,
   };
 
   void inspect(Json cell) {
@@ -288,7 +288,11 @@ class _AvailabilityHistoryState extends State<AvailabilityHistory> {
                           color: color(cell['status'] as String?),
                           borderRadius: BorderRadius.circular(2),
                           border: cell['status'] == 'incomplete'
-                              ? Border.all(color: Colors.white)
+                              ? Border.all(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSurface,
+                                )
                               : null,
                         ),
                       ),
@@ -368,7 +372,12 @@ class _AvailabilityHistoryState extends State<AvailabilityHistory> {
                               color: color(cell['status'] as String?),
                               borderRadius: BorderRadius.circular(2),
                               border: cell['status'] == 'incomplete'
-                                  ? Border.all(color: Colors.white, width: 1.5)
+                                  ? Border.all(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurface,
+                                      width: 1.5,
+                                    )
                                   : null,
                             ),
                           ),

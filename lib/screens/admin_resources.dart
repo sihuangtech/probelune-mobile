@@ -110,6 +110,7 @@ class _AdminResourcesState extends State<AdminResources> {
                 children: [
                   if (result['code'] is String)
                     QrImageView(
+                      backgroundColor: Colors.white,
                       data: jsonEncode({
                         'type': 'probelune-pair',
                         'version': 1,
