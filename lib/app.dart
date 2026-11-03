@@ -9,7 +9,7 @@ class ProbeluneApp extends StatelessWidget {
   final Instances instances;
   @override
   Widget build(BuildContext context) => MaterialApp(
-    title: 'Probelune · 巡汐',
+    title: 'Probelune - 巡汐',
     debugShowCheckedModeBanner: false,
     supportedLocales: const [Locale('en'), Locale('zh')],
     localizationsDelegates: GlobalMaterialLocalizations.delegates,

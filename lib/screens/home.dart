@@ -156,7 +156,7 @@ class _HomeState extends State<HomeScreen> with WidgetsBindingObserver {
     final instance = widget.instances.current;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Probelune · 巡汐'),
+        title: const Text('Probelune - 巡汐'),
         actions: [
           if (instance != null)
             PopupMenuButton<int>(
@@ -229,7 +229,7 @@ class _HomeState extends State<HomeScreen> with WidgetsBindingObserver {
                     ],
                   ),
                 Expanded(
-                  child: tab == 3
+                  child: tab == 4
                       ? SettingsScreen(widget.instances, push)
                       : RefreshIndicator(
                           onRefresh: refresh,
@@ -243,11 +243,12 @@ class _HomeState extends State<HomeScreen> with WidgetsBindingObserver {
                               const SizedBox(height: 8),
                               if (!offline && error.isNotEmpty) Text(error),
                               HomeFeed(
+                                key: ValueKey(identity),
                                 data: data,
                                 incidents: incidents,
                                 instance: instance,
                                 offline: offline,
-                                tab: tab,
+                                tab: [4, 0, 1, 2, 3][tab],
                               ),
                             ],
                           ),
@@ -262,8 +263,13 @@ class _HomeState extends State<HomeScreen> with WidgetsBindingObserver {
               onDestinationSelected: (v) => setState(() => tab = v),
               destinations: [
                 NavigationDestination(
+                  icon: const Icon(Icons.dashboard_outlined),
+                  label: tr(context, 'Overview', '总览'),
+                ),
+
+                NavigationDestination(
                   icon: const Icon(Icons.monitor_heart_outlined),
-                  label: tr(context, 'Monitors', '监测'),
+                  label: tr(context, 'Monitors', '监测管理'),
                 ),
                 NavigationDestination(
                   icon: const Icon(Icons.notifications_outlined),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../l10n.dart';
 import '../services/instances.dart';
 import '../services/push.dart';
+import 'admin_resources.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen(this.instances, this.push, {super.key});
@@ -37,6 +38,36 @@ class SettingsScreen extends StatelessWidget {
           style: Theme.of(context).textTheme.headlineMedium,
         ),
         const SizedBox(height: 16),
+        for (final entry in [
+          ('/settings', 'Instance settings', '面板设置'),
+          ('/status', 'Public status page', '公开状态页'),
+          ('/nodes', 'Node management', '节点管理'),
+          ('/diagnostics', 'Diagnostics', '即时诊断'),
+          ('/maintenance', 'Maintenance windows', '维护窗口'),
+          if (i.canEdit) ('/deliveries', 'Notification deliveries', '通知投递'),
+          if (i.role == 'admin') ...[
+            ('/channels', 'Notification channels', '通知渠道'),
+            ('/users', 'Members', '成员管理'),
+            ('/audit', 'Audit log', '审计日志'),
+          ],
+          ('/auth/sessions', 'Sessions and pairing', '会话与配对'),
+          ('/devices', 'Devices', '设备'),
+        ])
+          ListTile(
+            title: Text(tr(context, entry.$2, entry.$3)),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => AdminResources(
+                  instance: i,
+                  resource: entry.$1,
+                  title: tr(context, entry.$2, entry.$3),
+                ),
+              ),
+            ),
+          ),
+
         Card(
           child: Column(
             children: [
@@ -117,13 +148,7 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
-        Text(
-          tr(
-            context,
-            'Probelune 0.1.0 · GPL-3.0\nMonitoring configuration is managed in the web dashboard. Mobile provides observation, incident handling and rechecks.',
-            '巡汐 0.1.0 · GPL-3.0\n监测配置在网页面板管理，移动端负责观测、故障处置和复查。',
-          ),
-        ),
+        Text(tr(context, 'Probelune 0.1.1 - GPL-3.0', '巡汐 0.1.1 - GPL-3.0')),
       ],
     );
   }

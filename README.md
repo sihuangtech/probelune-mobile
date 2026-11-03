@@ -9,7 +9,11 @@ Availability history supports 15-minute, hourly and custom cell durations. Missi
 ## Features
 
 - Multiple self-hosted instances; password login or short-lived, single-use pairing QR codes.
-- Monitor overview, node health, per-location evidence, availability/coverage and historical charts.
+- Server overview and monitor management with protocol/status filters, recent uptime cells and latency.
+- Create, edit, copy, pause and archive monitors with protocol-specific configuration and permissions.
+- Historical evidence with source/status/stage filters, paging, time-cell selection and native JSON sharing.
+- Node registration and credential management; notification channels, delivery history and maintenance windows.
+- Instance settings, members, audit history, sessions, devices and pairing QR codes, subject to server roles.
 - Incident timelines, acknowledgement, notes and one-hour silence, subject to server roles.
 - Immediate rechecks with per-node results, progress and cancellation inside the app.
 - Secure sessions and last-known overview cache (up to 24 hours), clearly marked offline.

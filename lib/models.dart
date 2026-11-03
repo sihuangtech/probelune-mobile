@@ -49,3 +49,12 @@ class ApiException implements Exception {
   @override
   String toString() => message;
 }
+
+String endpoint(Json check) {
+  final target = '${check['target'] ?? ''}';
+  if (!['tcp', 'udp'].contains(check['type'])) return target;
+  final host = target.contains(':') && !target.startsWith('[')
+      ? '[$target]'
+      : target;
+  return '$host:${check['port']}';
+}
