@@ -24,9 +24,15 @@ Flutter Android/iOS 客户端，连接自托管面板，在手机查看多位置
 
 ## 界面预览
 
-<img src="docs/images/mobile-zh-light.png" alt="使用演示数据的监测界面" width="360" />
+截图使用演示数据，展示浅色主题。
 
-截图使用演示数据。应用支持语言切换，以及浅色、深色和跟随系统三种主题。
+<img src="docs/images/previews/1320x2868/zh-Hans/01-overview.png" alt="总览" width="240" />
+<img src="docs/images/previews/1320x2868/zh-Hans/02-monitors.png" alt="监测管理" width="240" />
+<img src="docs/images/previews/1320x2868/zh-Hans/03-nodes.png" alt="节点" width="240" />
+<img src="docs/images/previews/1320x2868/zh-Hans/04-settings.png" alt="设置" width="240" />
+<img src="docs/images/previews/1320x2868/zh-Hans/05-about.png" alt="关于" width="240" />
+
+[截图文件](docs/images/previews)
 
 ## 功能
 

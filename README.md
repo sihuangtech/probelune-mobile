@@ -24,9 +24,15 @@ To set up Probelune, start with the dashboard and a probe node, then connect the
 
 ## Preview
 
-<img src="docs/images/mobile-en-light.png" alt="Monitoring interface with example data" width="360" />
+Screenshots use demonstration data and the light theme.
 
-Example data only. The application supports language and light/dark/system theme switching.
+<img src="docs/images/previews/1320x2868/en-US/01-overview.png" alt="Overview" width="240" />
+<img src="docs/images/previews/1320x2868/en-US/02-monitors.png" alt="Monitor management" width="240" />
+<img src="docs/images/previews/1320x2868/en-US/03-nodes.png" alt="Nodes" width="240" />
+<img src="docs/images/previews/1320x2868/en-US/04-settings.png" alt="Settings" width="240" />
+<img src="docs/images/previews/1320x2868/en-US/05-about.png" alt="About" width="240" />
+
+[Screenshot files](docs/images/previews)
 
 ## Features
 
