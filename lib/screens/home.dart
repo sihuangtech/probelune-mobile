@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../models.dart';
 import '../l10n.dart';
+import '../widgets/brand_icon.dart';
 import '../services/api.dart';
 import '../services/instances.dart';
 import '../services/push.dart';
@@ -187,11 +188,7 @@ class _HomeState extends State<HomeScreen> with WidgetsBindingObserver {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(
-                      Icons.nightlight_round,
-                      size: 70,
-                      color: Color(0xff087f73),
-                    ),
+                    const BrandIcon(size: 70),
                     const SizedBox(height: 24),
                     Text(
                       tr(

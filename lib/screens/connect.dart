@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
 import '../l10n.dart';
+import '../widgets/brand_icon.dart';
 import '../models.dart';
 import '../services/instances.dart';
 
@@ -78,11 +79,7 @@ class _ConnectState extends State<ConnectScreen> {
         child: ListView(
           padding: const EdgeInsets.all(24),
           children: [
-            const Icon(
-              Icons.nightlight_round,
-              color: Color(0xff087f73),
-              size: 54,
-            ),
+            const BrandIcon(size: 54),
             const SizedBox(height: 20),
             Text(
               tr(context, 'Your network, in view.', '随时掌握你的观测网络。'),

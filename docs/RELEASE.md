@@ -43,3 +43,13 @@ On signed real Android/iOS devices verify: permissions denied/granted, foregroun
 Local validation covers static analysis, Android debug build/emulator connection and unsigned iOS compilation. Provider delivery, maintainer signing and store submission require external credentials and are recorded separately in the shared acceptance document.
 
 References: [Flutter Android](https://docs.flutter.dev/deployment/android), [Flutter iOS](https://docs.flutter.dev/deployment/ios), [Firebase Flutter setup](https://firebase.google.com/docs/cloud-messaging/flutter/get-started).
+
+## App icon
+
+The editable source image is `assets/branding/app-icon.png`. Android launcher densities, adaptive icon resources and the iOS app icon catalog are generated using the Flutter Community `flutter_launcher_icons` development tool.
+
+```sh
+dart run tool/generate_icons.dart
+```
+
+The wrapper also restores the Swift asset-symbol setting that flutter_launcher_icons 0.14.4 incorrectly rewrites. The generator settings are in `flutter_launcher_icons.yaml`. Rebuild and reinstall the app after regenerating native launcher icons.
