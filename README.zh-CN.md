@@ -6,6 +6,22 @@ Flutter Android/iOS 客户端，连接自托管面板，在手机查看多位置
 
 可用性历史支持 15 分钟、每小时及自定义色块粒度，缺测保持未知，可用率与覆盖率分开显示；同一次诊断按节点分组查看。
 
+## Probelune 项目仓库
+
+Probelune 由六个仓库组成，当前仓库是 **probelune-mobile**。可通过下表了解并访问其他组件。
+
+自部署时从网页面板和探测节点开始，移动端与桌面端连接同一个面板，协议仓库为开发者提供共享定义。
+
+| 仓库 | 用途 |
+| --- | --- |
+| [probelune](https://github.com/sihuangtech/probelune) | 项目总览、架构与部署指南 |
+| [probelune-dashboard](https://github.com/sihuangtech/probelune-dashboard) | 网页控制台与 Go API 服务端 |
+| [probelune-node](https://github.com/sihuangtech/probelune-node) | 部署在监测网络中的探测执行器 |
+| [probelune-mobile](https://github.com/sihuangtech/probelune-mobile) | Flutter Android 与 iOS 移动客户端 |
+| [probelune-desktop](https://github.com/sihuangtech/probelune-desktop) | Electron 桌面客户端与诊断工具 |
+| [probelune-contracts](https://github.com/sihuangtech/probelune-contracts) | 共享 Go 数据结构、参数校验与接口协议 |
+
+
 ## 界面预览
 
 <img src="docs/images/mobile-zh-light.png" alt="使用演示数据的监测界面" width="360" />
