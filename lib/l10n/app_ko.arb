@@ -315,5 +315,6 @@
   "backend881d75694c": "노드가 존재하지 않습니다",
   "backendeaa1941b80": "HTTP 어설션 또는 요청 헤더가 너무 큽니다.",
   "clientInvalidUrl": "HTTPS 대시보드 주소를 입력하세요. 예: https://monitor.example.com",
-  "clientInvalidPairingCode": "유효하지 않은 페어링 QR 코드입니다"
+  "clientInvalidPairingCode": "유효하지 않은 페어링 QR 코드입니다",
+  "aboutApp": "Probelune 정보"
 }

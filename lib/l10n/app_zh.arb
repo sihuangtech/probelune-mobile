@@ -315,5 +315,6 @@
   "backend881d75694c": "节点不存在",
   "backendeaa1941b80": "HTTP 断言或请求头过大",
   "clientInvalidUrl": "请输入 HTTPS 面板地址，例如 https://monitor.example.com",
-  "clientInvalidPairingCode": "配对二维码无效"
+  "clientInvalidPairingCode": "配对二维码无效",
+  "aboutApp": "关于巡汐"
 }

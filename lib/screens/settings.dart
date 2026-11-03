@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
+
+import 'about.dart';
 
 import '../localization.dart';
 import '../services/instances.dart';
@@ -180,48 +180,14 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
-        Row(
-          children: [
-            Expanded(
-              child: Text(
-                message(context, 'mProbelune011GPL3283e'),
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
-            ),
-            IconButton(
-              tooltip: 'GitHub',
-              icon: const FaIcon(FontAwesomeIcons.github),
-              onPressed: () async {
-                final uri = Uri.https(
-                  'github.com',
-                  '/sihuangtech/probelune-mobile',
-                );
-                try {
-                  if (await launchUrl(
-                    uri,
-                    mode: LaunchMode.externalApplication,
-                  )) {
-                    return;
-                  }
-                } catch (_) {}
-                if (context.mounted) {
-                  showDialog<void>(
-                    context: context,
-                    builder: (c) => AlertDialog(
-                      title: const Text('GitHub'),
-                      content: SelectableText(uri.toString()),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(c),
-                          child: Text(message(c, 'mDone4bc2')),
-                        ),
-                      ],
-                    ),
-                  );
-                }
-              },
-            ),
-          ],
+        ListTile(
+          leading: const Icon(Icons.info_outline),
+          title: Text(message(context, 'aboutApp')),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const AboutScreen()),
+          ),
         ),
       ],
     );

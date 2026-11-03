@@ -315,5 +315,6 @@
   "backend881d75694c": "Knoten existiert nicht",
   "backendeaa1941b80": "HTTP-Assertion oder Anforderungsheader ist zu groß",
   "clientInvalidUrl": "Geben Sie eine HTTPS-Adresse ein, zum Beispiel https://monitor.example.com",
-  "clientInvalidPairingCode": "Ungültiger Kopplungs-QR-Code"
+  "clientInvalidPairingCode": "Ungültiger Kopplungs-QR-Code",
+  "aboutApp": "Über Probelune"
 }

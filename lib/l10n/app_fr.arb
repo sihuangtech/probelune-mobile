@@ -315,5 +315,6 @@
   "backend881d75694c": "Le nœud n'existe pas",
   "backendeaa1941b80": "L'assertion HTTP ou l'en-tête de requête est trop volumineux",
   "clientInvalidUrl": "Saisissez une adresse HTTPS, par exemple https://monitor.example.com",
-  "clientInvalidPairingCode": "Code QR d’association non valide"
+  "clientInvalidPairingCode": "Code QR d’association non valide",
+  "aboutApp": "À propos de Probelune"
 }

@@ -315,5 +315,6 @@
   "backend881d75694c": "ノードが存在しません",
   "backendeaa1941b80": "HTTP アサーションまたはリクエスト ヘッダーが大きすぎます",
   "clientInvalidUrl": "HTTPS のパネル URL を入力してください（例：https://monitor.example.com）",
-  "clientInvalidPairingCode": "ペアリング QR コードが無効です"
+  "clientInvalidPairingCode": "ペアリング QR コードが無効です",
+  "aboutApp": "Probelune について"
 }
